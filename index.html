@@ -31,7 +31,9 @@
     box-shadow:0 8px 24px rgba(0,0,0,.25);
   }
   a.btn:active { transform:scale(.98); }
-  .nota { margin-top:14px; font-size:13px; color:#cfc4f5; }
+  .nota { margin-top:14px; font-size:15px; color:#fff; }
+  a.alt { display:block; margin-top:16px; color:var(--amarelo); font-weight:700; font-size:16px; }
+  .dica { margin-top:12px; font-size:13px; line-height:1.4; color:#cfc4f5; }
 </style>
 </head>
 <body>
@@ -45,13 +47,18 @@
     <li>Ofertas todo dia</li>
     <li>Nada de desconto falso na Black Friday</li>
   </ul>
-  <a class="btn" id="entrar" href="https://chat.whatsapp.com/KTA3GPy1mcvHHLQMrvTfyk">Entrar no grupo do WhatsApp</a>
-  <p class="nota">Você vai ser levado ao WhatsApp em instantes.</p>
+  <a class="btn" id="entrar" href="whatsapp://chat/?code=KTA3GPy1mcvHHLQMrvTfyk">Entrar no grupo do WhatsApp</a>
+  <p class="nota">Toque no botão e depois em <b>Participar do grupo</b>.</p>
+  <a class="alt" href="https://chat.whatsapp.com/KTA3GPy1mcvHHLQMrvTfyk">Não abriu? Toque aqui</a>
+  <p class="dica">Se ainda assim não abrir, toque nos três pontinhos (⋯) no canto da tela e escolha <b>Abrir no navegador</b>.</p>
 </main>
 <script>
-  setTimeout(function () {
-    window.location.href = document.getElementById('entrar').href;
-  }, 3000);
+  // Android: intent link opens the WhatsApp app straight from in-app browsers (Instagram/Facebook)
+  if (/Android/i.test(navigator.userAgent)) {
+    document.getElementById('entrar').href =
+      'intent://chat/?code=KTA3GPy1mcvHHLQMrvTfyk#Intent;scheme=whatsapp;package=com.whatsapp;' +
+      'S.browser_fallback_url=https%3A%2F%2Fchat.whatsapp.com%2FKTA3GPy1mcvHHLQMrvTfyk;end';
+  }
 </script>
 </body>
 </html>
