@@ -23,57 +23,85 @@
   }
 </script>
 <style>
-  :root { --roxo:#5b44c6; --roxo-esc:#2c1b64; --amarelo:#ffc420; }
-  * { box-sizing:border-box; margin:0; padding:0; }
-  html,body { min-height:100%; }
+  :root { --rosa:#ff4fa3; --rosa-cl:#ffd1e8; --roxo:#6a35c9; --roxo-esc:#3a1670; --amarelo:#ffc420; }
+  * { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
   body {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    background: linear-gradient(180deg, var(--roxo) 0%, var(--roxo-esc) 100%);
-    color:#fff; display:flex; align-items:center; justify-content:center; padding:28px 16px;
-    min-height:100vh;
+    background: radial-gradient(circle at 20% 0%, #ff7cc0 0%, transparent 45%),
+                radial-gradient(circle at 90% 30%, #9a5cff 0%, transparent 50%),
+                linear-gradient(180deg, #8a3fd1 0%, #3a1670 100%);
+    color:#fff; min-height:100vh; overflow-x:hidden; position:relative;
   }
-  main { width:100%; max-width:420px; text-align:center; }
-  img { width:112px; height:112px; border-radius:26px; box-shadow:0 10px 30px rgba(0,0,0,.3); }
-  .marca { margin-top:16px; color:var(--amarelo); font-weight:800; letter-spacing:.08em; font-size:14px; }
-  h1 { margin-top:10px; font-size:30px; line-height:1.15; font-weight:900; }
-  p.sub { margin-top:12px; font-size:17px; line-height:1.45; color:#e4dcff; }
-  ul { list-style:none; margin:20px auto 0; text-align:left; display:inline-block; font-size:16px; line-height:1.9; }
-  li::before { content:"✓ "; color:var(--amarelo); font-weight:900; }
+  .flut { position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
+  .flut span { position:absolute; font-size:30px; opacity:.4; animation: sobe linear infinite; filter:drop-shadow(0 4px 6px rgba(0,0,0,.25)); }
+  @keyframes sobe { 0% { transform:translateY(110vh) rotate(0deg); } 100% { transform:translateY(-15vh) rotate(360deg); } }
+  main { position:relative; z-index:1; width:100%; max-width:420px; margin:0 auto; padding:26px 18px 36px; text-align:center; }
+  .logo { width:84px; height:84px; border-radius:22px; box-shadow:0 8px 24px rgba(0,0,0,.3); }
+  .marca { margin-top:12px; display:inline-block; background:#fff; color:var(--rosa); font-weight:900; letter-spacing:.08em; font-size:12px; padding:6px 14px; border-radius:999px; }
+  h1 { margin-top:14px; font-size:31px; line-height:1.12; font-weight:900; text-shadow:0 2px 10px rgba(0,0,0,.25); }
+  h1 em { font-style:normal; color:var(--amarelo); }
+  p.sub { margin-top:10px; font-size:16px; line-height:1.45; color:#ffe9f5; }
+  .vitrine { margin:18px auto 0; display:flex; justify-content:center; gap:10px; font-size:44px; }
+  .vitrine span { background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35); border-radius:20px; width:68px; height:68px; display:flex; align-items:center; justify-content:center; animation: bob 2.4s ease-in-out infinite; backdrop-filter:blur(4px); }
+  .vitrine span:nth-child(2){animation-delay:.3s} .vitrine span:nth-child(3){animation-delay:.6s} .vitrine span:nth-child(4){animation-delay:.9s}
+  @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px) rotate(-4deg)} }
+  .pergunta { margin-top:22px; font-weight:800; font-size:16px; }
+  .chips { margin-top:10px; display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
+  .chip { border:2px solid #fff; background:transparent; color:#fff; font-weight:800; font-size:15px; padding:9px 14px; border-radius:999px; cursor:pointer; transition:.15s; font-family:inherit; }
+  .chip.on { background:#fff; color:var(--rosa); transform:scale(1.06); }
   a.btn {
-    display:block; margin-top:26px; padding:22px 18px; border-radius:18px;
-    background:var(--amarelo); color:var(--roxo-esc); font-weight:900; font-size:22px; line-height:1.2;
-    text-decoration:none; box-shadow:0 10px 28px rgba(0,0,0,.3);
-    animation: pulso 2.2s ease-in-out infinite;
+    position:relative; overflow:hidden; display:block; margin-top:24px; padding:22px 16px; border-radius:999px;
+    background:linear-gradient(135deg,#ff4fa3,#ff8a3d); color:#fff; font-weight:900; font-size:21px; line-height:1.2;
+    text-decoration:none; box-shadow:0 0 0 0 rgba(255,79,163,.8), 0 12px 28px rgba(0,0,0,.35);
+    animation: pulso 1.6s infinite; border:3px solid #fff;
   }
-  a.btn small { display:block; margin-top:4px; font-size:14px; font-weight:700; opacity:.8; }
-  a.btn:active { transform:scale(.98); }
-  @keyframes pulso { 0%,100% { transform:scale(1); } 50% { transform:scale(1.03); } }
-  @media (prefers-reduced-motion: reduce) { a.btn { animation:none; } }
-  .nota { margin-top:12px; font-size:14px; color:#e4dcff; }
+  a.btn small { display:block; margin-top:3px; font-size:13px; font-weight:700; opacity:.95; }
+  a.btn::after { content:""; position:absolute; top:0; left:-60%; width:40%; height:100%; background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent); transform:skewX(-20deg); animation: brilho 2.8s infinite; }
+  @keyframes pulso { 0%{ transform:scale(1); box-shadow:0 0 0 0 rgba(255,79,163,.8),0 12px 28px rgba(0,0,0,.35);} 50%{ transform:scale(1.045);} 100%{ transform:scale(1); box-shadow:0 0 0 22px rgba(255,79,163,0),0 12px 28px rgba(0,0,0,.35);} }
+  @keyframes brilho { 0%{left:-60%} 60%,100%{left:130%} }
+  @media (prefers-reduced-motion: reduce) { a.btn,a.btn::after,.vitrine span,.flut span { animation:none; } }
+  .nota { margin-top:12px; font-size:14px; color:#ffe9f5; }
   .nota a { color:var(--amarelo); font-weight:700; }
-  .tg { margin-top:34px; font-size:14px; color:#cfc4f5; }
+  .bene { margin-top:22px; display:grid; gap:8px; text-align:left; }
+  .bene div { background:rgba(255,255,255,.14); border-radius:16px; padding:11px 14px; font-size:15px; font-weight:600; }
+  .tg { margin-top:26px; font-size:13px; color:#f1defa; }
   .tg a { color:#fff; font-weight:700; }
+  .spark { position:fixed; pointer-events:none; z-index:5; font-size:22px; animation: pop .8s ease-out forwards; }
+  @keyframes pop { 0%{opacity:1; transform:translate(0,0) scale(.6)} 100%{opacity:0; transform:translate(var(--dx),var(--dy)) scale(1.4)} }
 </style>
 </head>
 <body>
+<div class="flut" id="flut"></div>
 <main>
-  <img src="../logo.png" alt="Desconto Real">
-  <div class="marca">DESCONTO REAL · BELEZA</div>
-  <h1>Maquiagem, skincare e cabelo com desconto de verdade</h1>
-  <p class="sub">Ofertas da Amazon, Shopee e Mercado Livre com preço conferido, todo dia.</p>
-  <ul>
-    <li>Grupo 100% grátis</li>
-    <li>Só beleza, sem bagunça</li>
-    <li>Sai quando quiser</li>
-  </ul>
+  <img class="logo" src="../logo.png" alt="Desconto Real">
+  <div><span class="marca">DESCONTO REAL · BELEZA</span></div>
+  <h1>Seu <em>batom, skincare</em> e cabelo com desconto de verdade 💖</h1>
+  <p class="sub">Ofertas conferidas da Amazon, Shopee e Mercado Livre, direto no seu WhatsApp.</p>
+
+  <div class="vitrine"><span>💄</span><span>🧴</span><span>💅</span><span>🌸</span></div>
+
+  <p class="pergunta">O que você ama? Toque ✨</p>
+  <div class="chips">
+    <button class="chip" type="button">💄 Make</button>
+    <button class="chip" type="button">🧴 Skincare</button>
+    <button class="chip" type="button">💇‍♀️ Cabelo</button>
+    <button class="chip" type="button">💅 Unhas</button>
+    <button class="chip" type="button">🇰🇷 K-beauty</button>
+  </div>
 
   <a class="btn" id="btn-beleza" href="https://chat.whatsapp.com/KTA3GPy1mcvHHLQMrvTfyk">
-    Entrar no grupo de Beleza (grátis)
-    <small>no WhatsApp</small>
+    ✨ Entrar no grupo de Beleza (grátis) ✨
+    <small>toque e participe no WhatsApp</small>
   </a>
   <p class="nota">Depois toque em <b>Participar do grupo</b>. Não abriu? <a id="btn-beleza-alt" href="https://chat.whatsapp.com/KTA3GPy1mcvHHLQMrvTfyk">Toque aqui</a></p>
 
-  <p class="tg">Prefere Telegram? <a id="btn-telegram" href="https://t.me/descontoreal">Ver o canal no Telegram</a></p>
+  <div class="bene">
+    <div>🎀 100% grátis, sai quando quiser</div>
+    <div>🔥 Só beleza, sem bagunça</div>
+    <div>✅ Preço conferido, nada de desconto falso</div>
+  </div>
+
+  <p class="tg">Prefere Telegram? <a id="btn-telegram" href="https://t.me/descontoreal">Ver o canal</a></p>
 </main>
 <script>
   var WHATS = 'https://chat.whatsapp.com/KTA3GPy1mcvHHLQMrvTfyk';
@@ -99,6 +127,21 @@
   lead(btn, 'WhatsApp');
   lead(document.getElementById('btn-beleza-alt'), 'WhatsApp');
   lead(document.getElementById('btn-telegram'), 'Telegram');
+</script>
+<script>
+  (function(){
+    var e=['💄','🧴','💅','🌸','✨','💖','🪞','🎀','💋','🌷'], f=document.getElementById('flut');
+    for(var i=0;i<14;i++){var s=document.createElement('span');s.textContent=e[i%e.length];
+      s.style.left=(Math.random()*92)+'%';s.style.animationDuration=(9+Math.random()*9)+'s';
+      s.style.animationDelay=(-Math.random()*14)+'s';s.style.fontSize=(22+Math.random()*20)+'px';f.appendChild(s);}
+  })();
+  function brilho(x,y){var a=['✨','💖','⭐','🌸'];for(var i=0;i<6;i++){var s=document.createElement('span');
+    s.className='spark';s.textContent=a[i%4];s.style.left=x+'px';s.style.top=y+'px';
+    s.style.setProperty('--dx',(Math.random()*120-60)+'px');s.style.setProperty('--dy',(-30-Math.random()*90)+'px');
+    document.body.appendChild(s);setTimeout(function(el){el.remove()},900,s);}}
+  document.querySelectorAll('.chip').forEach(function(c){
+    c.addEventListener('click',function(ev){c.classList.toggle('on');brilho(ev.clientX,ev.clientY);});
+  });
 </script>
 </body>
 </html>
