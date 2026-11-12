@@ -2,70 +2,161 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Desconto Real · Links</title>
-<meta name="description" content="Grupos de ofertas grátis do Desconto Real: Beleza, Games e Fit, no WhatsApp e no Telegram.">
-<meta property="og:title" content="Desconto Real · Grupos de ofertas">
-<meta property="og:description" content="Ofertas com preço conferido, todo dia, de graça. Escolha seu grupo.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Desconto Real · Entre no grupo grátis</title>
+<meta name="description" content="Pare de pagar caro. Ofertas da Shopee, Amazon e Mercado Livre com preço conferido, direto no seu WhatsApp. Grátis.">
+<meta property="og:title" content="Desconto Real · Pare de pagar caro">
+<meta property="og:description" content="Ofertas com preço conferido, direto no seu WhatsApp. Entre grátis.">
 <meta property="og:image" content="https://southerngrowthdigital-glitch.github.io/desconto-real/links/logo.png">
+<meta name="theme-color" content="#2c1b64">
 <link rel="icon" href="logo.png">
 <style>
-  :root { --roxo:#5b44c6; --roxo-esc:#2c1b64; --amarelo:#ffc420; --lilas:#e4dcff; }
-  * { box-sizing:border-box; margin:0; padding:0; }
+  :root { --roxo:#5b44c6; --roxo-esc:#2c1b64; --roxo-fundo:#1c1046; --amarelo:#ffc420; --amarelo-cl:#ffe08a; --lilas:#e4dcff; --lilas2:#cfc4f5; }
+  * { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+  html { scroll-behavior:smooth; }
   body {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    background: linear-gradient(180deg, #5b44c6 0%, #2c1b64 100%) fixed;
-    background-color:#2c1b64; color:#fff; min-height:100vh; padding:32px 16px 40px;
+    background: radial-gradient(circle at 50% -10%, #7a62e8 0%, transparent 55%), linear-gradient(180deg, #4a35b0 0%, #2c1b64 45%, #1c1046 100%) fixed;
+    background-color:var(--roxo-fundo); color:#fff; min-height:100vh;
   }
-  main { width:100%; max-width:440px; margin:0 auto; text-align:center; }
-  .logo { width:104px; height:104px; border-radius:26px; box-shadow:0 10px 30px rgba(0,0,0,.3); }
-  h1 { margin-top:14px; font-size:26px; font-weight:900; letter-spacing:.02em; }
-  h1 span { color:var(--amarelo); }
-  .sub { margin-top:8px; font-size:16px; line-height:1.45; color:var(--lilas); }
 
-  .grupo { margin-top:26px; text-align:left; }
-  .cab { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
-  .cab img { width:46px; height:46px; border-radius:12px; }
-  .cab b { font-size:18px; display:block; }
-  .cab small { font-size:13px; color:#cfc4f5; }
+  /* faixa de urgência */
+  .faixa { background:var(--amarelo); color:var(--roxo-esc); text-align:center; font-weight:900; font-size:14px;
+           padding:9px 12px; letter-spacing:.01em; }
+  .faixa b { background:var(--roxo-esc); color:var(--amarelo); padding:1px 7px; border-radius:6px; margin:0 2px; }
+
+  main { width:100%; max-width:440px; margin:0 auto; padding:22px 16px 120px; text-align:center; }
+  .marca { display:flex; align-items:center; justify-content:center; gap:10px; }
+  .marca img { width:46px; height:46px; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,.3); }
+  .marca span { font-weight:900; font-size:17px; letter-spacing:.04em; }
+  .marca span i { font-style:normal; color:var(--amarelo); }
+
+  h1 { margin-top:18px; font-size:36px; line-height:1.02; font-weight:900; letter-spacing:-.01em; text-transform:uppercase; }
+  h1 em { font-style:normal; color:var(--amarelo); display:block; font-size:31px; margin-top:4px; white-space:nowrap; }
+  .sub { margin-top:12px; font-size:17px; line-height:1.4; color:var(--lilas); }
+  .sub b { color:#fff; }
+
+  .lojas { margin-top:14px; display:flex; justify-content:center; gap:6px; flex-wrap:wrap; }
+  .lojas span { font-size:13px; font-weight:800; padding:5px 10px; border-radius:999px; background:rgba(255,255,255,.1);
+                border:1px solid rgba(255,255,255,.18); }
+
+  /* botão principal */
+  .cta { position:relative; overflow:hidden; display:block; margin-top:22px; padding:20px 16px 16px; border-radius:20px;
+         background:var(--amarelo); color:var(--roxo-esc); text-decoration:none; font-weight:900; font-size:21px; line-height:1.15;
+         box-shadow:0 0 0 0 rgba(255,196,32,.7), 0 14px 30px rgba(0,0,0,.35); animation:pulso 1.8s infinite; }
+  .cta small { display:block; margin-top:6px; font-size:13px; font-weight:700; opacity:.8; }
+  .cta svg { width:24px; height:24px; vertical-align:-5px; margin-right:6px; }
+  .cta::after { content:""; position:absolute; top:0; left:-60%; width:40%; height:100%;
+                background:linear-gradient(100deg, transparent, rgba(255,255,255,.65), transparent); transform:skewX(-20deg);
+                animation:brilho 2.6s infinite; }
+  .cta:active { transform:scale(.97); }
+  @keyframes pulso { 0%{box-shadow:0 0 0 0 rgba(255,196,32,.7),0 14px 30px rgba(0,0,0,.35)} 70%{box-shadow:0 0 0 18px rgba(255,196,32,0),0 14px 30px rgba(0,0,0,.35)} 100%{box-shadow:0 0 0 0 rgba(255,196,32,0),0 14px 30px rgba(0,0,0,.35)} }
+  @keyframes brilho { 0%{left:-60%} 60%,100%{left:130%} }
+  @media (prefers-reduced-motion: reduce) { .cta, .cta::after, .fixo .cta { animation:none; } }
+
+  .garantias { margin-top:12px; display:flex; justify-content:center; gap:14px; flex-wrap:wrap; font-size:13px; font-weight:700; color:var(--lilas2); }
+
+  /* como funciona */
+  h2 { margin-top:34px; font-size:20px; font-weight:900; text-transform:uppercase; letter-spacing:.02em; }
+  h2 em { font-style:normal; color:var(--amarelo); }
+  .passos { margin-top:14px; display:grid; gap:10px; text-align:left; }
+  .passo { display:flex; align-items:center; gap:12px; padding:13px 14px; border-radius:16px; background:rgba(255,255,255,.08);
+           border:1px solid rgba(255,255,255,.14); font-size:15px; line-height:1.35; }
+  .passo b.n { flex:none; width:32px; height:32px; border-radius:50%; background:var(--amarelo); color:var(--roxo-esc);
+               display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:900; }
+
+  /* por que entrar */
+  .porque { margin-top:14px; display:grid; grid-template-columns:1fr 1fr; gap:10px; text-align:left; }
+  .porque div { padding:13px 12px; border-radius:16px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.14);
+                font-size:14px; line-height:1.35; color:var(--lilas); }
+  .porque div b { display:block; font-size:22px; margin-bottom:4px; }
+  .porque div strong { color:#fff; }
+
+  /* grupos */
+  .grupo { margin-top:12px; padding:14px; border-radius:20px; text-align:left; background:rgba(255,255,255,.08);
+           border:1px solid rgba(255,255,255,.16); }
+  .grupo.top { background:rgba(255,196,32,.12); border:2px solid var(--amarelo); }
+  .cab { display:flex; align-items:center; gap:12px; }
+  .cab img { width:54px; height:54px; border-radius:14px; flex:none; }
+  .cab b { font-size:19px; display:block; }
+  .cab small { font-size:13px; color:var(--lilas2); line-height:1.3; display:block; margin-top:2px; }
   .tag { display:inline-block; margin-left:6px; padding:2px 8px; border-radius:999px; background:var(--amarelo);
-         color:var(--roxo-esc); font-size:11px; font-weight:900; vertical-align:2px; }
-
-  a.btn {
-    display:flex; align-items:center; justify-content:center; gap:10px; margin-top:10px; padding:16px 18px;
-    border-radius:16px; text-decoration:none; font-weight:800; font-size:17px;
-    background:rgba(255,255,255,.12); color:#fff; border:1.5px solid rgba(255,255,255,.22);
-    transition:transform .1s;
-  }
+         color:var(--roxo-esc); font-size:11px; font-weight:900; vertical-align:3px; }
+  a.btn { display:flex; align-items:center; justify-content:center; gap:10px; margin-top:12px; padding:15px 14px; border-radius:14px;
+          text-decoration:none; font-weight:900; font-size:16px; background:#fff; color:var(--roxo-esc); }
+  .grupo.top a.btn { background:var(--amarelo); }
   a.btn:active { transform:scale(.98); }
-  a.btn.forte { background:var(--amarelo); color:var(--roxo-esc); border-color:var(--amarelo);
-                box-shadow:0 8px 24px rgba(0,0,0,.25); font-size:18px; padding:18px; }
   a.btn svg { width:22px; height:22px; flex:none; }
+  a.tg { display:block; margin-top:10px; text-align:center; font-size:14px; font-weight:700; color:var(--lilas); }
+  a.tg u { color:#fff; }
 
-  .redes { margin-top:30px; }
-  .dica { margin-top:22px; font-size:13px; line-height:1.45; color:#cfc4f5; }
-  footer { margin-top:18px; font-size:12px; color:#a99be0; }
+  /* perguntas */
+  .faq { margin-top:14px; text-align:left; }
+  details { padding:13px 14px; border-radius:14px; background:rgba(255,255,255,.06); margin-top:8px; }
+  summary { font-weight:800; font-size:15px; cursor:pointer; list-style:none; }
+  summary::-webkit-details-marker { display:none; }
+  summary::after { content:"+"; float:right; color:var(--amarelo); font-weight:900; }
+  details[open] summary::after { content:"–"; }
+  details p { margin-top:8px; font-size:14px; line-height:1.45; color:var(--lilas); }
+
+  .insta { display:inline-flex; align-items:center; gap:8px; margin-top:28px; color:var(--lilas); font-size:14px; font-weight:700; text-decoration:none; }
+  .insta svg { width:18px; height:18px; }
+  .dica { margin-top:16px; font-size:13px; line-height:1.45; color:var(--lilas2); }
+  footer { margin-top:12px; font-size:12px; color:#a99be0; }
+
+  /* botão fixo embaixo */
+  .fixo { position:fixed; left:0; right:0; bottom:0; padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+          background:linear-gradient(180deg, rgba(28,16,70,0), rgba(28,16,70,.96) 35%); transform:translateY(110%);
+          transition:transform .25s; z-index:10; }
+  .fixo.on { transform:none; }
+  .fixo .cta { max-width:440px; margin:0 auto; padding:15px 14px; font-size:17px; border-radius:16px; }
 </style>
 </head>
 <body>
-<main>
-  <img class="logo" src="logo.png" alt="Desconto Real">
-  <h1>DESCONTO <span>REAL</span></h1>
-  <p class="sub">Ofertas com preço conferido, todo dia e de graça.<br>Escolha seu grupo:</p>
 
-  <section class="grupo">
+<div class="faixa">🔥 Black Friday em <b id="dias">poucos</b> <span id="dias-txt">dias</span>: as ofertas caem primeiro no grupo</div>
+
+<main>
+  <div class="marca"><img src="logo.png" alt=""><span>DESCONTO <i>REAL</i></span></div>
+
+  <h1>Pare de<br>pagar caro <em>no que você ama</em></h1>
+  <p class="sub">A gente garimpa as ofertas e manda <b>direto no seu WhatsApp</b>, com o preço conferido. Você só toca e compra.</p>
+
+  <div class="lojas"><span>🟠 Shopee</span><span>📦 Amazon</span><span>💛 Mercado Livre</span></div>
+
+  <a class="cta wa" data-code="KTA3GPy1mcvHHLQMrvTfyk" data-grupo="Grupo Beleza" href="https://chat.whatsapp.com/KTA3GPy1mcvHHLQMrvTfyk">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-3.3-.8-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.6-.1 1.2z"/></svg>QUERO ENTRAR NO GRUPO DE BELEZA
+    <small>Make, skincare, cabelo e coreanos 🇰🇷 · grátis</small>
+  </a>
+  <div class="garantias"><span>✅ 100% grátis</span><span>🔕 Pode silenciar</span><span>🚪 Sai quando quiser</span></div>
+
+  <h2>Entrar leva <em>5 segundos</em></h2>
+  <div class="passos">
+    <div class="passo"><b class="n">1</b><span>Toque no botão do seu grupo</span></div>
+    <div class="passo"><b class="n">2</b><span>No WhatsApp, toque em <b>Participar do grupo</b></span></div>
+    <div class="passo"><b class="n">3</b><span>Pronto. Agora é só esperar as ofertas chegarem 🛍️</span></div>
+  </div>
+
+  <h2>Por que <em>entrar agora</em></h2>
+  <div class="porque">
+    <div><b>⚡</b><strong>Ofertas toda hora</strong> da Shopee, Amazon e Mercado Livre</div>
+    <div><b>✅</b><strong>Preço conferido</strong>. Nada de desconto falso</div>
+    <div><b>⏳</b><strong>Oferta boa acaba rápido</strong>. Quem está no grupo vê primeiro</div>
+    <div><b>🎁</b><strong>Black Friday e Natal</strong> chegando: presente bom sem pagar caro</div>
+  </div>
+
+  <h2 id="grupos">Escolha <em>seu grupo</em></h2>
+
+  <section class="grupo top">
     <div class="cab">
       <img src="beleza.jpg" alt="">
-      <div><b>Beleza <span class="tag">MAIS POPULAR</span></b><small>Cabelo, skincare, make, perfume e roupa feminina</small></div>
+      <div><b>Beleza <span class="tag">MAIS POPULAR</span></b><small>Make, skincare, cabelo, perfume e K-beauty</small></div>
     </div>
-    <a class="btn forte wa" data-code="KTA3GPy1mcvHHLQMrvTfyk" href="https://chat.whatsapp.com/KTA3GPy1mcvHHLQMrvTfyk">
+    <a class="btn wa" data-code="KTA3GPy1mcvHHLQMrvTfyk" data-grupo="Grupo Beleza" href="https://chat.whatsapp.com/KTA3GPy1mcvHHLQMrvTfyk">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-3.3-.8-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.6-.1 1.2z"/></svg>
-      Entrar no grupo do WhatsApp
+      Entrar no grupo de Beleza
     </a>
-    <a class="btn" href="https://t.me/descontoreal">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2l-11 6.9L1.8 12c-1-.3-1-1 .2-1.5L20.6 3.4c.9-.3 1.6.2 1.3.9z"/></svg>
-      Canal no Telegram
-    </a>
+    <a class="tg" data-grupo="Grupo Beleza" href="https://t.me/descontoreal">Prefere Telegram? <u>Canal de Beleza</u></a>
   </section>
 
   <section class="grupo">
@@ -73,14 +164,11 @@
       <img src="fitness.jpg" alt="">
       <div><b>Fit</b><small>Suplementos, roupa de academia e tênis</small></div>
     </div>
-    <a class="btn wa" data-code="KSanglGlhBZ3PCBZPxpYfa" href="https://chat.whatsapp.com/KSanglGlhBZ3PCBZPxpYfa">
+    <a class="btn wa" data-code="KSanglGlhBZ3PCBZPxpYfa" data-grupo="Grupo Fit" href="https://chat.whatsapp.com/KSanglGlhBZ3PCBZPxpYfa">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-3.3-.8-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.6-.1 1.2z"/></svg>
-      Grupo Fit no WhatsApp
+      Entrar no grupo Fit
     </a>
-    <a class="btn" href="https://t.me/descontorealfit">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2l-11 6.9L1.8 12c-1-.3-1-1 .2-1.5L20.6 3.4c.9-.3 1.6.2 1.3.9z"/></svg>
-      Canal Fit no Telegram
-    </a>
+    <a class="tg" data-grupo="Grupo Fit" href="https://t.me/descontorealfit">Prefere Telegram? <u>Canal Fit</u></a>
   </section>
 
   <section class="grupo">
@@ -88,27 +176,50 @@
       <img src="games.jpg" alt="">
       <div><b>Games</b><small>Jogos, consoles e acessórios</small></div>
     </div>
-    <a class="btn wa" data-code="LWGnCcl6t6zIXCog0cf0UJ" href="https://chat.whatsapp.com/LWGnCcl6t6zIXCog0cf0UJ">
+    <a class="btn wa" data-code="LWGnCcl6t6zIXCog0cf0UJ" data-grupo="Grupo Games" href="https://chat.whatsapp.com/LWGnCcl6t6zIXCog0cf0UJ">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-3.3-.8-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9 0-1.4.7-2 1-2.3.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.6-.1 1.2z"/></svg>
-      Grupo Games no WhatsApp
+      Entrar no grupo Games
     </a>
-    <a class="btn" href="https://t.me/descontorealgames">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2l-11 6.9L1.8 12c-1-.3-1-1 .2-1.5L20.6 3.4c.9-.3 1.6.2 1.3.9z"/></svg>
-      Canal Games no Telegram
-    </a>
+    <a class="tg" data-grupo="Grupo Games" href="https://t.me/descontorealgames">Prefere Telegram? <u>Canal Games</u></a>
   </section>
 
-  <section class="redes">
-    <a class="btn" href="https://www.instagram.com/grupodescontoreal/">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-      Instagram @grupodescontoreal
-    </a>
-  </section>
+  <h2>Dúvidas <em>rápidas</em></h2>
+  <div class="faq">
+    <details><summary>É grátis mesmo?</summary><p>Sim. Você não paga nada para entrar nem para ficar. A gente ganha uma pequena comissão das lojas quando você compra pelo link, sem mudar o seu preço.</p></details>
+    <details><summary>Vão encher meu celular?</summary><p>Pode silenciar o grupo e olhar quando quiser. E se não gostar, sai com um toque, sem ninguém te perguntar nada.</p></details>
+  </div>
 
+  <a class="insta" href="https://www.instagram.com/grupodescontoreal/">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+    Siga @grupodescontoreal
+  </a>
   <p class="dica">O WhatsApp não abriu? Toque nos três pontinhos (⋯) no canto da tela e escolha <b>Abrir no navegador</b>.</p>
-  <footer>Grátis. Você pode sair do grupo quando quiser.</footer>
+  <footer>Desconto Real · ofertas com preço conferido</footer>
 </main>
+
+<div class="fixo" id="fixo">
+  <a class="cta wa" data-code="KTA3GPy1mcvHHLQMrvTfyk" data-grupo="Grupo Beleza" href="https://chat.whatsapp.com/KTA3GPy1mcvHHLQMrvTfyk">
+    ENTRAR GRÁTIS NO GRUPO DE BELEZA
+  </a>
+</div>
+
 <script>
+  // Dias até a Black Friday (27/11/2026); depois disso, Natal
+  (function () {
+    var hoje = new Date(); hoje.setHours(0,0,0,0);
+    var bf = new Date(2026, 10, 27), natal = new Date(2026, 11, 25);
+    var faixa = document.querySelector('.faixa');
+    var d = Math.round((bf - hoje) / 864e5);
+    if (d > 1) { document.getElementById('dias').textContent = d; }
+    else if (d === 1) { document.getElementById('dias').textContent = '1'; document.getElementById('dias-txt').textContent = 'dia'; }
+    else if (d === 0) { faixa.innerHTML = '🔥 <b>É HOJE</b> a Black Friday: as ofertas estão caindo no grupo'; }
+    else {
+      var n = Math.round((natal - hoje) / 864e5);
+      if (n > 0) faixa.innerHTML = '🎁 Natal em <b>' + n + '</b> ' + (n === 1 ? 'dia' : 'dias') + ': presentes com preço conferido no grupo';
+      else faixa.innerHTML = '🔥 Ofertas novas todo dia no grupo';
+    }
+  })();
+
   // Android: abre o app do WhatsApp direto do navegador do Instagram/TikTok
   if (/Android/i.test(navigator.userAgent)) {
     document.querySelectorAll('a.wa').forEach(function (a) {
@@ -117,6 +228,18 @@
         'S.browser_fallback_url=' + encodeURIComponent('https://chat.whatsapp.com/' + c) + ';end';
     });
   }
+
+  // Botão fixo aparece depois que o botão principal sai da tela
+  (function () {
+    var principal = document.querySelector('main .cta'), fixo = document.getElementById('fixo'), grupos = document.getElementById('grupos');
+    function ver() {
+      var r = principal.getBoundingClientRect(), g = grupos.getBoundingClientRect();
+      var passou = r.bottom < 0;
+      var nosGrupos = g.top < window.innerHeight && g.top > -900;
+      fixo.classList.toggle('on', passou && !nosGrupos);
+    }
+    window.addEventListener('scroll', ver, { passive:true }); ver();
+  })();
 </script>
 </body>
 </html>
