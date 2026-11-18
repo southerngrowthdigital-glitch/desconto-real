@@ -94,6 +94,31 @@ mark{background:linear-gradient(transparent 10%,var(--mark) 10% 92%,transparent 
 .seals li{display:flex;align-items:center;gap:8px;margin:5px 0}
 .seals .i{width:20px;height:20px;color:var(--green);stroke-width:2.4}
 
+
+/* 3b opinioes (ilustrativo) */
+.rvx{background:#F6F0FD;padding:44px 0}
+@media(min-width:760px){.rvx{padding:60px 0}}
+.rvx h2{color:var(--dark)}
+.rvx-note{max-width:620px;margin:0 auto 22px;text-align:center;font-size:13.5px;color:var(--soft);background:#fff;border:1px dashed rgba(123,44,191,.45);border-radius:12px;padding:9px 14px}
+.rvx-car{position:relative;max-width:1040px;margin:0 auto}
+.rvx-track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:6px 18px 30px;scrollbar-width:none;-webkit-overflow-scrolling:touch;cursor:grab;touch-action:pan-x pan-y}
+.rvx-track::-webkit-scrollbar{display:none}
+.rvx-track:focus-visible{outline:3px solid var(--terra);outline-offset:2px;border-radius:12px}
+.rvx-card{flex:0 0 84%;scroll-snap-align:start;margin:0;background:#fff;border:1px solid rgba(123,44,191,.18);border-radius:20px;padding:8px;box-shadow:0 8px 22px rgba(59,15,99,.12)}
+.rvx-card img{display:block;width:100%;height:auto;aspect-ratio:1122/1402;object-fit:contain;border-radius:14px}
+@media(min-width:760px){.rvx-track{padding:6px 4px 30px}.rvx-card{flex-basis:calc((100% - 36px)/3)}}
+.rvx-arrow{display:none;position:absolute;top:44%;width:46px;height:46px;border-radius:50%;border:1px solid rgba(123,44,191,.25);background:#fff;color:var(--terra);box-shadow:0 6px 16px rgba(59,15,99,.2);cursor:pointer;align-items:center;justify-content:center;z-index:2}
+.rvx-arrow:focus-visible{outline:3px solid var(--terra);outline-offset:2px}
+.rvx-arrow svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.rvx-arrow.l{left:-14px}.rvx-arrow.r{right:-14px}
+@media(min-width:760px){.rvx-arrow{display:flex}}
+@media(min-width:1100px){.rvx-arrow.l{left:-56px}.rvx-arrow.r{right:-56px}}
+.rvx-dots{display:flex;justify-content:center;gap:4px;margin-top:6px}
+.rvx-dots button{width:26px;height:26px;border:0;background:none;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.rvx-dots button:focus-visible{outline:3px solid var(--terra);border-radius:50%}
+.rvx-dots button i{width:10px;height:10px;border-radius:50%;background:rgba(123,44,191,.25);transition:all .2s}
+.rvx-dots button[aria-current="true"] i{background:var(--terra);width:22px;border-radius:6px}
+
 /* 3 carousel */
 .dark{background:var(--dark);color:#fff}
 .dark h2{color:#fff}
@@ -311,6 +336,48 @@ footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font
 <div class="bar" aria-hidden="true"><i id="bar"></i></div>
 <p class="drag-hint">Arraste para o lado para ver todas</p>
 </section>
+
+<!-- 3b. QUEM COMPRA TEM OPINIAO -->
+<section class="rvx" id="opinioes">
+<div class="wrap narrow"><h2>Quem compra tem opinião</h2>
+<p class="lead">Experiências com o Protocolo 21 Dias: Tabuada sem Guerra.</p>
+<p class="rvx-note"><strong>Exemplos ilustrativos.</strong> Os cards abaixo são exemplos criados para ilustrar o tipo de experiência esperada; não são avaliações de clientes reais.</p></div>
+<div class="rvx-car">
+  <button class="rvx-arrow l" type="button" aria-label="Cards anteriores"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <div class="rvx-track" id="rvxTrack" tabindex="0" role="region" aria-label="Carrossel de exemplos de experiências com o protocolo">
+    <figure class="rvx-card"><img src="img/rev/r1.webp" width="900" height="1125" loading="lazy" decoding="async" alt="Card de exemplo 1 de 6: Mariana S., mãe de aluno, cinco estrelas, fala sobre o filho ganhar confiança aos poucos com o protocolo"></figure>
+    <figure class="rvx-card"><img src="img/rev/r2.webp" width="900" height="1125" loading="lazy" decoding="async" alt="Card de exemplo 2 de 6: Juliana M., mãe de aluno, cinco estrelas, fala sobre a rotina de 21 dias deixar o filho mais calmo para estudar"></figure>
+    <figure class="rvx-card"><img src="img/rev/r3.webp" width="900" height="1125" loading="lazy" decoding="async" alt="Card de exemplo 3 de 6: Ana P., responsável, cinco estrelas, fala sobre poucos minutos por dia e uma rotina leve"></figure>
+    <figure class="rvx-card"><img src="img/rev/r4.webp" width="900" height="1125" loading="lazy" decoding="async" alt="Card de exemplo 4 de 6: Camila R., mãe de aluno, cinco estrelas, fala sobre o painel de progresso e a motivação"></figure>
+    <figure class="rvx-card"><img src="img/rev/r5.webp" width="900" height="1125" loading="lazy" decoding="async" alt="Card de exemplo 5 de 6: Patrícia L., responsável, cinco estrelas, fala sobre o guia prático do dia em que o filho travava"></figure>
+    <figure class="rvx-card"><img src="img/rev/r6.webp" width="900" height="1125" loading="lazy" decoding="async" alt="Card de exemplo 6 de 6: Renata F., mãe de aluno, cinco estrelas, fala sobre o filho mais confiante ao fazer as contas"></figure>
+  </div>
+  <button class="rvx-arrow r" type="button" aria-label="Próximos cards"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+<div class="rvx-dots" id="rvxDots"><button type="button" aria-label="Ir para o card 1"><i></i></button><button type="button" aria-label="Ir para o card 2"><i></i></button><button type="button" aria-label="Ir para o card 3"><i></i></button><button type="button" aria-label="Ir para o card 4"><i></i></button><button type="button" aria-label="Ir para o card 5"><i></i></button><button type="button" aria-label="Ir para o card 6"><i></i></button></div>
+</section>
+<script>
+(function(){
+  var tr=document.getElementById("rvxTrack"); if(!tr) return;
+  var cards=[].slice.call(tr.children), dots=[].slice.call(document.querySelectorAll("#rvxDots button"));
+  var root=document.getElementById("opinioes");
+  function step(){ return cards[1].offsetLeft-cards[0].offsetLeft; }
+  function idx(){ return Math.min(cards.length-1,Math.max(0,Math.round(tr.scrollLeft/step()))); }
+  function upd(){ var i=idx(); dots.forEach(function(d,k){ d.setAttribute("aria-current",k===i?"true":"false"); }); }
+  function go(i){ tr.scrollTo({left:Math.max(0,Math.min(cards.length-1,i))*step(),behavior:"smooth"}); }
+  function per(){ return window.innerWidth>=760?3:1; }
+  root.querySelector(".rvx-arrow.l").addEventListener("click",function(){ go(idx()-per()); });
+  root.querySelector(".rvx-arrow.r").addEventListener("click",function(){ go(idx()+per()); });
+  dots.forEach(function(d,k){ d.addEventListener("click",function(){ go(k); }); });
+  tr.addEventListener("scroll",function(){ window.requestAnimationFrame(upd); },{passive:true});
+  tr.addEventListener("keydown",function(e){ if(e.key==="ArrowRight"){e.preventDefault();go(idx()+1);} if(e.key==="ArrowLeft"){e.preventDefault();go(idx()-1);} });
+  var down=false,sx=0,sl=0,moved=false;
+  tr.addEventListener("pointerdown",function(e){ if(e.pointerType!=="mouse")return; down=true;moved=false;sx=e.clientX;sl=tr.scrollLeft; });
+  window.addEventListener("pointermove",function(e){ if(!down)return; var dx=e.clientX-sx; if(Math.abs(dx)>4&&!moved){moved=true;tr.style.scrollSnapType="none";tr.style.scrollBehavior="auto";} if(moved)tr.scrollLeft=sl-dx; });
+  window.addEventListener("pointerup",function(){ if(!down)return; down=false; if(moved){ var t=tr.scrollLeft; tr.style.scrollSnapType=""; tr.style.scrollBehavior=""; go(Math.round(t/step())); } });
+  upd();
+})();
+</script>
 
 <!-- 4. POR QUE EXISTE -->
 <section>
