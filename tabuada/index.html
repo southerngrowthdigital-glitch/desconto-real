@@ -5,17 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Protocolo 21 Dias: Tabuada sem Guerra · Lição em Paz</title>
 <meta name="description" content="Uma folha por dia, 10 minutos e um cronômetro de 3 minutos. Ele para de fugir da tabuada em 21 dias. Você só cronometra.">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Protocolo 21 Dias: Tabuada sem Guerra">
 <meta property="og:description" content="10 minutos por dia. Você só cronometra.">
-<meta property="og:image" content="img/dia1.jpg">
+<meta property="og:image" content="https://licaoempaz.netlify.app/tabuada/img/og.jpg">
+<meta name="theme-color" content="#ffffff">
+<link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="fonts/inter-Regular.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/inter-ExtraBold.woff2" crossorigin>
 <script>
 /* ===== CONFIG ===== */
 window.LEP = {
-  PIXEL_ID: "1895132121911404",   /* ID do pixel Kids */
-  CLARITY_ID: "zfasou3b30", /* ID do projeto Clarity */
+  PIXEL_ID: "1895132121911404",
+  CLARITY_ID: "zfasou3b30",
   CHECKOUT_FRONT: "https://pay.cakto.com.br/jsn6oz4_1336920",
   CHECKOUT_PREMIUM: "https://pay.cakto.com.br/38t84e2_1336966",
-  CHECKOUT_DOWNSELL: "https://pay.cakto.com.br/dukudk7_1336976"
+  CHECKOUT_PREMIUM57: "",   /* oferta de R$ 57 do modal: o modal só liga quando este link existir */
+  CHECKOUT_DOWNSELL: "https://pay.cakto.com.br/dukudk7_1336976",
+  ANCHOR_147: false,        /* riscar R$ 147 só se esse for um preço real já praticado */
+  GUARANTEE_DAYS: 21,       /* dias de garantia mostrados no selo e no texto */
+  WHATSAPP: ""              /* número de suporte, só dígitos com DDI (ex.: 5511999999999) */
 };
 </script>
 <script>
@@ -30,275 +39,547 @@ if (window.LEP.CLARITY_ID) {
 }
 </script>
 <style>
-:root{--ink:#1d1d1f;--soft:#55555c;--bg:#fffaf2;--card:#ffffff;--line:#ece4d6;--green:#1f6f5c;--green-d:#175a4a;--orange:#e4572e;--yellow:#fff3c9}
+@font-face{font-family:Inter;font-weight:400;font-style:normal;font-display:swap;src:url(fonts/inter-Regular.woff2) format("woff2")}
+@font-face{font-family:Inter;font-weight:600;font-style:normal;font-display:swap;src:url(fonts/inter-SemiBold.woff2) format("woff2")}
+@font-face{font-family:Inter;font-weight:800;font-style:normal;font-display:swap;src:url(fonts/inter-ExtraBold.woff2) format("woff2")}
+:root{--ink:#1C1C1C;--soft:#515962;--cream:#F5F3EF;--terra:#B36230;--dark:#4B1412;--green:#2CAA33;--green-d:#1F8A26;--red:#B8301C;--mark:#FFE6A3;--gold:#FFC83D;--line:rgba(0,0,0,.10);--r:16px}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
-.wrap{max-width:680px;margin:0 auto;padding:0 18px}
-section{padding:44px 0;border-bottom:1px solid var(--line)}
-h1{font-size:30px;line-height:1.2;margin:0 0 16px;letter-spacing:-.4px}
-h2{font-size:25px;line-height:1.25;margin:0 0 16px;letter-spacing:-.3px}
-p{margin:0 0 14px}
-.brand{font-weight:800;color:var(--green);letter-spacing:.5px;font-size:14px;text-transform:uppercase;padding-top:18px}
-.sub{font-size:19px;color:var(--soft)}
-.support{background:var(--yellow);padding:12px 14px;border-radius:10px;font-weight:600}
-.btn{display:block;width:100%;text-align:center;background:var(--green);color:#fff;text-decoration:none;font-weight:800;font-size:18px;padding:17px 18px;border-radius:12px;margin:22px 0 6px;box-shadow:0 4px 0 var(--green-d);letter-spacing:.2px}
-.btn:active{transform:translateY(2px);box-shadow:0 2px 0 var(--green-d)}
-.btn.alt{background:#fff;color:var(--green);border:2px solid var(--green);box-shadow:none}
-.note{text-align:center;font-size:14px;color:var(--soft)}
-ul{padding-left:20px;margin:0 0 14px}
-li{margin:6px 0}
-.steps{counter-reset:s;list-style:none;padding:0}
-.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px 12px 56px;position:relative}
-.steps li:before{content:counter(s);position:absolute;left:14px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:var(--orange);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center}
-.days{list-style:none;padding:0}
-.days li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
-.days li.hot{border:2px solid var(--orange)}
-.shots{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
-.shots figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:6px}
-.shots img{width:100%;height:auto;display:block;border-radius:6px}
-.shots figcaption{font-size:13px;color:var(--soft);text-align:center;padding-top:4px}
-.check{list-style:none;padding:0}
-.check li{padding-left:30px;position:relative}
-.check li:before{content:"✓";position:absolute;left:4px;color:var(--green);font-weight:900}
-.nums{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.nums div{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center;font-size:15px}
-.nums b{display:block;font-size:30px;color:var(--orange)}
-.plans{display:grid;gap:16px}
-.plan{background:#fff;border:2px solid var(--line);border-radius:16px;padding:20px}
-.plan.main{border-color:var(--green);box-shadow:0 6px 20px rgba(31,111,92,.12)}
-.tag{display:inline-block;background:var(--green);color:#fff;font-size:12px;font-weight:800;padding:4px 10px;border-radius:99px;text-transform:uppercase;letter-spacing:.5px}
-.price{font-size:40px;font-weight:900;margin:6px 0}
-.plan h3{margin:8px 0 4px;font-size:20px}
-.guar{background:#fff;border:2px dashed var(--green);border-radius:16px;padding:20px}
-details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:10px 0}
-summary{font-weight:700;cursor:pointer}
-details p{margin:10px 0 0}
-footer{padding:28px 0 110px;font-size:13px;color:var(--soft);text-align:center}
-.sticky{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(0,0,0,.08);transform:translateY(110%);transition:transform .25s;z-index:20}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:var(--ink);font:400 17px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+.narrow{max-width:720px}
+section{padding:40px 0}
+@media(min-width:760px){section{padding:56px 0}}
+h1,h2,h3{margin:0}
+h1{font-weight:800;font-size:clamp(30px,8.4vw,48px);line-height:1.08;letter-spacing:-.025em;text-align:center}
+h2{font-weight:800;font-size:clamp(25px,6.4vw,36px);line-height:1.14;letter-spacing:-.02em;text-align:center;margin-bottom:12px}
+h3{font-weight:800;font-size:18px;line-height:1.25}
+p{margin:0}
+b,strong{font-weight:800}
+mark{background:linear-gradient(transparent 10%,var(--mark) 10% 92%,transparent 92%);color:inherit;padding:0 .12em;margin:0 -.04em 0 -.02em;border-radius:4px}
+.lead{max-width:620px;margin:0 auto 24px;text-align:center;color:var(--soft)}
+.i{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+
+/* CTA */
+.btn{display:flex;align-items:center;justify-content:center;width:100%;max-width:520px;min-height:58px;margin:18px auto 0;padding:14px 20px;background:var(--green);color:#fff;text-decoration:none;text-transform:uppercase;text-align:center;font:800 18px/1.15 Inter,system-ui,sans-serif;letter-spacing:.01em;border:0;border-radius:14px;box-shadow:0 5px 0 var(--green-d),0 14px 26px rgba(44,170,51,.26);cursor:pointer;text-shadow:0 1px 0 rgba(0,0,0,.2)}
+.btn:hover{filter:brightness(1.05)}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 var(--green-d)}
+.btn.y{background:var(--gold);color:var(--ink);box-shadow:0 5px 0 #C99A1B,0 14px 26px rgba(255,200,61,.22);text-shadow:none}
+.micro{text-align:center;font-size:14px;color:var(--soft);margin-top:10px}
+
+/* 1 safety pill */
+.safe{display:flex;justify-content:center;padding-top:12px}
+.safe span{display:inline-flex;align-items:center;gap:8px;background:#E8F6E9;color:#1B6B20;border:1px solid var(--green);border-radius:99px;padding:7px 16px;font-weight:800;font-size:13.5px}
+.safe .i{width:16px;height:16px;stroke-width:2.4}
+
+/* 2 hero */
+.hero{padding:16px 0 36px;border-bottom:1px solid var(--line)}
+.hero .sub{text-align:center;font-size:18px;line-height:1.45;margin:0 auto;max-width:520px}
+.hero .shot{width:100%;max-width:540px;margin:-8px auto -14px}
+.price-line{text-align:center;font-size:20px;margin-top:2px}
+.price-line s{color:var(--soft)}
+.price-line b{font-size:40px;line-height:1;letter-spacing:-.02em;color:var(--ink)}
+.anchor{display:none}
+.has-anchor .anchor{display:inline}
+.has-anchor .noanchor{display:none}
+.seals{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:18px}
+.seals svg.selo{width:84px;height:100px;flex:none}
+.seals ul{list-style:none;margin:0;padding:0;font-size:14.5px;font-weight:600;line-height:1.35}
+.seals li{display:flex;align-items:center;gap:8px;margin:5px 0}
+.seals .i{width:20px;height:20px;color:var(--green);stroke-width:2.4}
+
+/* 3 carousel */
+.dark{background:var(--dark);color:#fff}
+.dark h2{color:#fff}
+.dark .lead{color:rgba(255,255,255,.78)}
+.car{position:relative}
+.track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px max(18px,calc((100vw - 1040px)/2 + 18px)) 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch;cursor:grab;scroll-padding:0 18px}
+.track::-webkit-scrollbar{display:none}
+.track.drag{scroll-snap-type:none;cursor:grabbing}
+.sheet{flex:0 0 62vw;max-width:250px;scroll-snap-align:start;margin:0}
+.sheet img{width:100%;border-radius:12px;background:#fff;box-shadow:0 12px 26px rgba(0,0,0,.4);user-select:none;-webkit-user-drag:none;pointer-events:none}
+.sheet figcaption{padding-top:10px;font-size:14px;line-height:1.35;color:rgba(255,255,255,.85)}
+.sheet figcaption b{display:block;font-size:17px;color:var(--mark)}
+.sheet.hot img{outline:3px solid var(--gold);outline-offset:2px}
+.bar{height:4px;background:rgba(255,255,255,.18);border-radius:4px;max-width:260px;margin:4px auto 0;overflow:hidden}
+.bar i{display:block;height:100%;width:5%;background:var(--gold);border-radius:4px}
+.arrow{display:none;position:absolute;top:38%;width:46px;height:46px;border-radius:50%;border:0;background:#fff;color:var(--ink);box-shadow:0 6px 16px rgba(0,0,0,.35);cursor:pointer;align-items:center;justify-content:center}
+.arrow.l{left:12px}.arrow.r{right:12px}
+@media(min-width:760px){.arrow{display:flex}.sheet{flex-basis:230px}}
+.drag-hint{text-align:center;font-size:13.5px;color:rgba(255,255,255,.7);margin-top:10px}
+
+/* 4 why */
+.mesa{width:100%;max-width:720px;margin:0 auto 22px;border-radius:20px;box-shadow:0 14px 34px rgba(0,0,0,.14)}
+.cards3{display:grid;gap:12px;margin-top:6px}
+@media(min-width:760px){.cards3{grid-template-columns:repeat(3,1fr);gap:16px}}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.05)}
+.card .ic{width:46px;height:46px;border-radius:14px;background:var(--cream);color:var(--terra);display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.card p{color:var(--soft);font-size:15.5px;margin-top:6px}
+
+/* 5 sample */
+.terra{background:var(--terra);color:#fff}
+.terra h2{color:#fff}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:760px;margin:6px auto 0}
+.pair figure{margin:0}
+.pair img{width:100%;filter:drop-shadow(0 12px 18px rgba(0,0,0,.35))}
+.pair figcaption{font-size:13.5px;text-align:center;padding-top:8px;font-weight:600}
+.cap{text-align:center;font-weight:800;font-size:19px;margin-top:20px}
+.cap span{background:linear-gradient(transparent 62%,rgba(255,230,163,.55) 62%);padding:0 4px}
+
+/* 6 for you */
+.cream{background:var(--cream)}
+.cards3.tick .card{display:flex;gap:12px;align-items:flex-start}
+.cards3.tick .card p{margin:0;color:var(--ink);font-weight:600;font-size:17px;line-height:1.4}
+.cards3.tick .i{color:#fff;background:var(--green);border-radius:50%;padding:5px;width:30px;height:30px;stroke-width:3}
+
+/* 7 inside */
+.inside{display:grid;gap:18px;align-items:center}
+@media(min-width:820px){.inside{grid-template-columns:1.05fr 1fr;gap:36px}}
+.inside img{width:100%;max-width:600px;margin:0 auto}
+.ck{list-style:none;padding:0;margin:0}
+.ck li{display:flex;gap:10px;margin:10px 0;font-size:16.5px;line-height:1.4}
+.ck .i{width:22px;height:22px;color:var(--green);stroke-width:3;margin-top:1px}
+.ck small{display:block;color:var(--soft);font-size:14px}
+
+/* 8 offer */
+.pill{display:table;margin:0 auto 12px;background:var(--red);color:#fff;font-weight:800;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:7px 16px;border-radius:99px}
+.plans{display:grid;gap:18px;margin-top:20px}
+@media(min-width:820px){.plans{grid-template-columns:1fr 1fr;align-items:stretch;gap:24px}}
+.plan{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px 22px 24px;display:flex;flex-direction:column;box-shadow:0 8px 24px rgba(0,0,0,.06)}
+.plan.best{border:2px solid var(--green);box-shadow:0 14px 34px rgba(44,170,51,.18)}
+.plan .tag{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;font-weight:800;font-size:12.5px;letter-spacing:.07em;text-transform:uppercase;padding:6px 14px;border-radius:99px;white-space:nowrap;text-shadow:0 1px 0 rgba(0,0,0,.2)}
+.plan h3{font-size:20px;text-align:center}
+.plan .was{text-align:center;color:var(--soft);font-size:15px;margin-top:8px;min-height:0}
+.plan .price{text-align:center;font-size:48px;font-weight:800;letter-spacing:-.03em;line-height:1.05;margin-top:6px}
+.plan .pay{text-align:center;color:var(--soft);font-size:14px;margin-bottom:6px}
+.plan .ck{flex:1;margin:10px 0 4px}
+.plan .btn{margin-top:14px}
+.fine{text-align:center;color:var(--soft);font-size:14px;margin-top:18px}
+
+/* 10 proof */
+.red{background:var(--red);color:#fff}
+.red h2{color:#fff;max-width:640px;margin-left:auto;margin-right:auto}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:760px;margin:22px auto 0}
+@media(min-width:760px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.28);border-radius:var(--r);padding:16px 10px;text-align:center}
+.stat b{display:block;font-size:42px;line-height:1;color:var(--mark);letter-spacing:-.03em}
+.stat span{display:block;font-size:14px;line-height:1.3;margin-top:6px}
+
+/* 11 guarantee */
+.guar{display:grid;gap:22px;align-items:center}
+@media(min-width:820px){.guar{grid-template-columns:.9fr 1.1fr;gap:40px}}
+.guar .vis{position:relative;max-width:270px;margin:0 auto;width:78%}
+@media(min-width:820px){.guar .vis{max-width:340px;width:100%}}
+.guar .vis img{border-radius:12px;transform:rotate(-3deg);box-shadow:0 16px 34px rgba(0,0,0,.2);border:1px solid var(--line)}
+.guar .vis svg{position:absolute;right:-20px;bottom:-24px;width:112px;height:134px;filter:drop-shadow(0 8px 12px rgba(0,0,0,.25))}
+.guar h2{text-align:left}
+.guar p{margin-top:10px}
+@media(max-width:819px){.guar h2{text-align:center}.guar .vis{margin-bottom:14px}}
+
+/* 12 steps */
+.steps{display:grid;gap:12px;margin-top:6px}
+@media(min-width:760px){.steps{grid-template-columns:repeat(3,1fr);gap:16px}}
+.step{display:flex;gap:14px;align-items:center;background:#fff;border-radius:var(--r);padding:16px;border:1px solid var(--line)}
+@media(min-width:760px){.step{flex-direction:column;text-align:center;padding:22px 16px}}
+.step .ic{width:56px;height:56px;border-radius:50%;background:var(--terra);color:#fff;display:flex;align-items:center;justify-content:center;flex:none;position:relative}
+.step .ic em{position:absolute;top:-6px;right:-6px;width:24px;height:24px;border-radius:50%;background:var(--ink);color:#fff;font:800 13px/24px Inter,sans-serif;font-style:normal;text-align:center}
+.step .ic .i{width:28px;height:28px}
+.step p{font-weight:600;line-height:1.35}
+
+/* 13 FAQ */
+details{border:1px solid var(--line);border-radius:14px;padding:0 16px;margin:10px 0;background:#fff}
+summary{font-weight:800;cursor:pointer;padding:16px 0;list-style:none;display:flex;justify-content:space-between;gap:12px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:26px;line-height:1;color:var(--terra);font-weight:600}
+details[open] summary::after{content:"–"}
+details p{padding:0 0 16px;color:var(--soft)}
+
+/* 14 footer */
+footer.dark{padding:40px 0 120px}
+footer .cols{display:grid;gap:10px;margin-top:26px;font-size:14.5px;color:rgba(255,255,255,.82);text-align:center}
+footer a{color:#fff}
+footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:14px;color:#fff;margin-top:8px}
+
+/* sticky */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,255,255,.97);border-top:1px solid var(--line);box-shadow:0 -8px 24px rgba(0,0,0,.1);padding:10px 14px calc(10px + env(safe-area-inset-bottom));transform:translateY(115%);transition:transform .25s}
 .sticky.on{transform:none}
-.sticky .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 18px}
-.sticky span{font-weight:700;font-size:15px}
-.sticky a{background:var(--green);color:#fff;text-decoration:none;font-weight:800;padding:12px 20px;border-radius:10px;white-space:nowrap}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:18px}
-.modal.on{display:flex}
-.box{background:#fff;border-radius:16px;max-width:420px;width:100%;padding:24px;position:relative;text-align:center}
-.box .x{position:absolute;right:10px;top:6px;background:none;border:0;font-size:28px;cursor:pointer;color:var(--soft)}
-@media(min-width:700px){h1{font-size:38px}.plans{grid-template-columns:1fr 1fr}.nums{grid-template-columns:repeat(3,1fr)}}
+.sticky .btn{margin:0 auto;min-height:52px;font-size:17px;box-shadow:0 4px 0 var(--green-d)}
+
+/* modals */
+.up{position:fixed;inset:0;z-index:60;background:rgba(8,8,14,.74);display:none;align-items:center;justify-content:center;padding:16px}
+.up.on{display:flex}
+.up-box{position:relative;width:100%;max-width:440px;max-height:92vh;overflow:auto;background:#12141C;color:#fff;border:2px solid var(--gold);border-radius:20px;padding:28px 22px 22px;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.up-box.light{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.up-x{position:absolute;top:8px;right:10px;width:44px;height:44px;border:0;background:none;color:inherit;font-size:30px;line-height:1;cursor:pointer;opacity:.8}
+.up-box h2{text-align:center;font-size:28px;color:inherit;margin-bottom:6px}
+.up-price{text-align:center;margin:6px 0 4px}
+.up-price s{opacity:.65;font-size:18px}
+.up-price b{font-size:46px;line-height:1;color:var(--gold);letter-spacing:-.03em;margin-left:6px}
+.up-save{text-align:center;font-weight:800;font-size:13.5px;color:#12141C;background:var(--gold);display:table;margin:6px auto 14px;border-radius:99px;padding:4px 12px}
+.up-box .ck li{color:#fff;font-size:15.5px}
+.up-box .ck .i{color:var(--gold)}
+.up-skip{display:block;text-align:center;margin-top:14px;color:rgba(255,255,255,.78);font-size:14.5px;text-decoration:underline;text-underline-offset:3px;padding:6px}
+.up-box.light p{text-align:center;color:var(--soft)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sticky{transition:none}}
 </style>
 </head>
 <body>
 
-<!-- BLOCO 1 -->
-<section style="padding-top:8px">
-<div class="wrap">
-<div class="brand">Lição em Paz</div>
-<h1 style="margin-top:14px">19h45. A folha de continhas ainda está em branco. E vocês dois já estão chorando.</h1>
-<p class="sub">Você chegou às 18h30, fez a janta, sentou com ele às 19h30. Quinze minutos depois virou briga. De novo.</p>
-<p class="support">Isso não é falta de paciência sua. É que te deram um monte de folhas e nenhum jeito de usar.</p>
-<a class="btn cta" href="#precos">QUERO PARAR A GUERRA DA TABUADA</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+<defs>
+<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBE08A"/><stop offset=".5" stop-color="#E4B13A"/><stop offset="1" stop-color="#B8841A"/></linearGradient>
+<linearGradient id="gold2" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#C99524"/><stop offset="1" stop-color="#F2CC63"/></linearGradient>
+<symbol id="selo" viewBox="0 0 200 240">
+  <path d="M62 138 L102 152 L90 234 L73 216 L50 228 Z" fill="url(#gold2)"/>
+  <path d="M138 138 L98 152 L110 234 L127 216 L150 228 Z" fill="url(#gold)"/>
+  <path d="M190.2,100.0 L189.6,101.8 L188.0,103.5 L185.8,105.2 L183.6,106.8 L181.9,108.3 L181.2,109.9 L181.5,111.6 L182.8,113.5 L184.6,115.5 L186.3,117.6 L187.4,119.7 L187.6,121.6 L186.6,123.2 L184.6,124.5 L182.1,125.6 L179.6,126.6 L177.6,127.6 L176.5,129.0 L176.4,130.8 L177.2,132.9 L178.4,135.3 L179.6,137.8 L180.2,140.0 L179.9,141.9 L178.5,143.2 L176.3,144.1 L173.6,144.5 L170.9,144.8 L168.7,145.4 L167.3,146.5 L166.8,148.1 L167.1,150.4 L167.7,153.0 L168.2,155.7 L168.3,158.1 L167.5,159.8 L165.9,160.8 L163.5,161.0 L160.8,160.8 L158.1,160.5 L155.8,160.5 L154.2,161.2 L153.4,162.7 L153.1,165.0 L153.0,167.7 L152.9,170.4 L152.4,172.7 L151.2,174.2 L149.4,174.8 L147.1,174.5 L144.5,173.6 L141.9,172.7 L139.7,172.1 L138.0,172.4 L136.8,173.7 L136.0,175.8 L135.3,178.4 L134.5,181.1 L133.5,183.2 L132.0,184.3 L130.1,184.4 L127.9,183.6 L125.6,182.1 L123.3,180.6 L121.3,179.6 L119.6,179.4 L118.1,180.4 L116.8,182.2 L115.5,184.6 L114.1,187.0 L112.6,188.7 L110.9,189.5 L109.0,189.2 L107.1,187.8 L105.2,185.8 L103.4,183.8 L101.7,182.3 L100.0,181.8 L98.3,182.3 L96.6,183.8 L94.8,185.8 L92.9,187.8 L91.0,189.2 L89.1,189.5 L87.4,188.7 L85.9,187.0 L84.5,184.6 L83.2,182.2 L81.9,180.4 L80.4,179.4 L78.7,179.6 L76.7,180.6 L74.4,182.1 L72.1,183.6 L69.9,184.4 L68.0,184.3 L66.5,183.2 L65.5,181.1 L64.7,178.4 L64.0,175.8 L63.2,173.7 L62.0,172.4 L60.3,172.1 L58.0,172.7 L55.5,173.6 L52.9,174.5 L50.6,174.8 L48.8,174.2 L47.6,172.7 L47.1,170.4 L47.0,167.7 L46.9,165.0 L46.6,162.7 L45.8,161.2 L44.2,160.5 L41.9,160.5 L39.2,160.8 L36.5,161.0 L34.1,160.8 L32.5,159.8 L31.7,158.1 L31.8,155.7 L32.3,153.0 L32.9,150.4 L33.2,148.1 L32.7,146.5 L31.3,145.4 L29.1,144.8 L26.4,144.5 L23.7,144.1 L21.5,143.2 L20.1,141.9 L19.8,140.0 L20.4,137.8 L21.6,135.3 L22.8,132.9 L23.6,130.8 L23.5,129.0 L22.4,127.6 L20.4,126.6 L17.9,125.6 L15.4,124.5 L13.4,123.2 L12.4,121.6 L12.6,119.7 L13.7,117.6 L15.4,115.5 L17.2,113.5 L18.5,111.6 L18.8,109.9 L18.1,108.3 L16.4,106.8 L14.2,105.2 L12.0,103.5 L10.4,101.8 L9.8,100.0 L10.4,98.2 L12.0,96.5 L14.2,94.8 L16.4,93.2 L18.1,91.7 L18.8,90.1 L18.5,88.4 L17.2,86.5 L15.4,84.5 L13.7,82.4 L12.6,80.3 L12.4,78.4 L13.4,76.8 L15.4,75.5 L17.9,74.4 L20.4,73.4 L22.4,72.4 L23.5,71.0 L23.6,69.2 L22.8,67.1 L21.6,64.7 L20.4,62.2 L19.8,60.0 L20.1,58.1 L21.5,56.8 L23.7,56.0 L26.4,55.5 L29.1,55.2 L31.3,54.6 L32.7,53.5 L33.2,51.9 L32.9,49.6 L32.3,47.0 L31.8,44.3 L31.7,41.9 L32.5,40.2 L34.1,39.2 L36.5,39.0 L39.2,39.2 L41.9,39.5 L44.2,39.5 L45.8,38.8 L46.6,37.3 L46.9,35.0 L47.0,32.3 L47.1,29.6 L47.6,27.3 L48.8,25.8 L50.6,25.2 L52.9,25.5 L55.5,26.4 L58.1,27.3 L60.3,27.9 L62.0,27.6 L63.2,26.3 L64.0,24.2 L64.7,21.6 L65.5,18.9 L66.5,16.8 L68.0,15.7 L69.9,15.6 L72.1,16.4 L74.4,17.9 L76.7,19.4 L78.7,20.4 L80.4,20.6 L81.9,19.6 L83.2,17.8 L84.5,15.4 L85.9,13.0 L87.4,11.3 L89.1,10.5 L91.0,10.8 L92.9,12.2 L94.8,14.2 L96.6,16.2 L98.3,17.7 L100.0,18.2 L101.7,17.7 L103.4,16.2 L105.2,14.2 L107.1,12.2 L109.0,10.8 L110.9,10.5 L112.6,11.3 L114.1,13.0 L115.5,15.4 L116.8,17.8 L118.1,19.6 L119.6,20.6 L121.3,20.4 L123.3,19.4 L125.6,17.9 L127.9,16.4 L130.1,15.6 L132.0,15.7 L133.5,16.8 L134.5,18.9 L135.3,21.6 L136.0,24.2 L136.8,26.3 L138.0,27.6 L139.7,27.9 L141.9,27.3 L144.5,26.4 L147.1,25.5 L149.4,25.2 L151.2,25.8 L152.4,27.3 L152.9,29.6 L153.0,32.3 L153.1,35.0 L153.4,37.3 L154.2,38.8 L155.8,39.5 L158.1,39.5 L160.8,39.2 L163.5,39.0 L165.9,39.2 L167.5,40.2 L168.3,41.9 L168.2,44.3 L167.7,47.0 L167.1,49.6 L166.8,51.9 L167.3,53.5 L168.7,54.6 L170.9,55.2 L173.6,55.5 L176.3,55.9 L178.5,56.8 L179.9,58.1 L180.2,60.0 L179.6,62.2 L178.4,64.7 L177.2,67.1 L176.4,69.2 L176.5,71.0 L177.6,72.4 L179.6,73.4 L182.1,74.4 L184.6,75.5 L186.6,76.8 L187.6,78.4 L187.4,80.3 L186.3,82.4 L184.6,84.5 L182.8,86.5 L181.5,88.4 L181.2,90.1 L181.9,91.7 L183.6,93.2 L185.8,94.8 L188.0,96.5 L189.6,98.2Z" fill="url(#gold)"/>
+  <circle cx="100" cy="100" r="74" fill="#fff" stroke="#E2AE36" stroke-width="3"/>
+  <circle cx="100" cy="100" r="66" fill="none" stroke="#EAC15E" stroke-width="1.5"/>
+  <path id="arcT" d="M44 100 A56 56 0 0 1 156 100" fill="none"/>
+  <path id="arcB" d="M36 100 A64 64 0 0 0 164 100" fill="none"/>
+  <text font-family="Inter,Arial,sans-serif" font-weight="800" font-size="12.5" letter-spacing="1.4" fill="#1C1C1C"><textPath href="#arcT" startOffset="50%" text-anchor="middle">COMPRA GARANTIDA</textPath></text>
+  <text font-family="Inter,Arial,sans-serif" font-weight="800" font-size="12.5" letter-spacing="1.4" fill="#1C1C1C"><textPath href="#arcB" startOffset="50%" text-anchor="middle">100% SEGURO</textPath></text>
+  <text x="100" y="112" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="52" fill="#1C1C1C" data-gdays>21</text>
+  <text x="100" y="132" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="400" font-size="16" fill="#1C1C1C">Dias</text>
+</symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+</defs>
+</svg>
+
+<!-- 1. BARRA DE SEGURANÇA -->
+<div class="safe"><span><svg class="i" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg>Compra 100% segura e protegida</span></div>
+
+<!-- 2. HERO -->
+<header class="hero">
+<div class="wrap narrow">
+  <h1 style="margin-top:14px">Ele para de fugir da tabuada em <mark>21 dias</mark>.</h1>
+  <p class="sub" style="margin-top:12px"><b>10 minutos por dia</b> e um cronômetro de 3 minutos.<br><b>Você só cronometra.</b></p>
+  <img class="shot" src="img/hero.webp" width="1100" height="800" fetchpriority="high" decoding="async" alt="Capa do Protocolo 21 Dias: Tabuada sem Guerra, ao lado da folha do dia 1 e do painel de 21 dias">
+  <p class="price-line"><span class="anchor">De <s>R$ 147,00</s> por apenas </span><span class="noanchor">Apenas </span><b>R$ 37,00</b></p>
+  <a class="btn co" data-co="CHECKOUT_FRONT" data-upgrade href="#">Quero o protocolo completo</a>
+  <p class="micro">Você recebe na hora, direto no seu e-mail</p>
+  <div class="seals">
+    <svg class="selo" viewBox="0 0 200 240" role="img" aria-label="Compra garantida"><use href="#selo"/></svg>
+    <ul>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3.2 8.4-7 10-3.8-1.6-7-5-7-10V6l7-3z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg>Satisfação garantida</li>
+      <li><svg class="i" viewBox="0 0 24 24"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6L13 3z"/></svg>Acesso imediato</li>
+    </ul>
+  </div>
 </div>
+</header>
+
+<!-- 3. CARROSSEL DAS 21 FOLHAS -->
+<section class="dark" id="folhas">
+<div class="wrap narrow"><h2>Veja as 21 folhas, do dia 1 ao dia 21</h2>
+<p class="lead">As folhas de verdade, na ordem em que ele faz. A dificuldade sobe um pouco a cada dia.</p></div>
+<div class="car">
+  <button class="arrow l" type="button" aria-label="Folhas anteriores"><svg class="i" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <div class="track" id="track" tabindex="0" aria-label="Carrossel com as 21 folhas do protocolo">
+    <figure class="sheet"><img src="img/dias/dia-01.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 1: Tabuada do 2"><figcaption><b>Dia 1</b>Tabuada do 2</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-02.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 2: Tabuada do 2 de novo"><figcaption><b>Dia 2</b>Tabuada do 2 de novo</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-03.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 3: Tabuada do 3"><figcaption><b>Dia 3</b>Tabuada do 3</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-04.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 4: Tabuadas do 2 e do 3 misturadas"><figcaption><b>Dia 4</b>Tabuadas do 2 e do 3 misturadas</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-05.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 5: Tabuada do 4"><figcaption><b>Dia 5</b>Tabuada do 4</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-06.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 6: Tabuada do 5"><figcaption><b>Dia 6</b>Tabuada do 5</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-07.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 7: Revisão do 2 ao 5"><figcaption><b>Dia 7</b>Revisão do 2 ao 5</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-08.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 8: Tabuada do 6"><figcaption><b>Dia 8</b>Tabuada do 6</figcaption></figure>
+    <figure class="sheet hot"><img src="img/dias/dia-09.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 9: Tabuada do 7: o dia do travamento"><figcaption><b>Dia 9</b>Tabuada do 7: o dia do travamento</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-10.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 10: Tabuada do 7 de novo"><figcaption><b>Dia 10</b>Tabuada do 7 de novo</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-11.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 11: Tabuadas do 6 e do 7 misturadas"><figcaption><b>Dia 11</b>Tabuadas do 6 e do 7 misturadas</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-12.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 12: Tabuada do 8"><figcaption><b>Dia 12</b>Tabuada do 8</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-13.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 13: Tabuada do 8 de novo"><figcaption><b>Dia 13</b>Tabuada do 8 de novo</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-14.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 14: Revisão do 2 ao 8"><figcaption><b>Dia 14</b>Revisão do 2 ao 8</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-15.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 15: Tabuada do 9"><figcaption><b>Dia 15</b>Tabuada do 9</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-16.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 16: Tabuada do 9 de novo"><figcaption><b>Dia 16</b>Tabuada do 9 de novo</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-17.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 17: Tabuadas do 6 ao 9 misturadas"><figcaption><b>Dia 17</b>Tabuadas do 6 ao 9 misturadas</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-18.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 18: Tabuadas do 6 ao 9, de novo"><figcaption><b>Dia 18</b>Tabuadas do 6 ao 9, de novo</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-19.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 19: Contra o relógio"><figcaption><b>Dia 19</b>Contra o relógio</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-20.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 20: Só as que você errou"><figcaption><b>Dia 20</b>Só as que você errou</figcaption></figure>
+    <figure class="sheet"><img src="img/dias/dia-21.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 21: Desafio final"><figcaption><b>Dia 21</b>Desafio final</figcaption></figure>
+  </div>
+  <button class="arrow r" type="button" aria-label="Próximas folhas"><svg class="i" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+<div class="bar" aria-hidden="true"><i id="bar"></i></div>
+<p class="drag-hint">Arraste para o lado para ver todas</p>
 </section>
 
-<!-- BLOCO 2 -->
+<!-- 4. POR QUE EXISTE -->
 <section>
 <div class="wrap">
-<h2>Material de atividades te devolve o trabalho. E você nunca foi ensinada a ensinar.</h2>
-<p>Você compra a apostila com 300 folhas. Imprime. E aí?</p>
-<ul>
-<li>Qual folha primeiro?</li>
-<li>Quanto tempo ele faz por dia?</li>
-<li>O que fazer quando ele trava no 7 × 8 e joga o lápis?</li>
-</ul>
-<p>A apostila não responde nada disso. Quem responde é você, na hora, cansada, às 19h45. A briga não começa porque seu filho é "ruim de matemática". Começa porque não existe ordem, nem tempo definido, nem linha de chegada. Sem isso, cada noite é uma negociação.</p>
+  <h2>Por que o protocolo existe</h2>
+  <p class="lead">A briga não começa porque seu filho é “ruim de matemática”. Começa porque não existe ordem, tempo definido nem linha de chegada.</p>
+  <img class="mesa" src="img/mesa.webp" width="1400" height="760" loading="lazy" decoding="async" alt="Montagem com a folha do dia 1, o painel de 21 dias, um cronômetro de 3 minutos, adesivos e um lápis sobre a mesa">
+  <div class="cards3">
+    <div class="card"><div class="ic"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14c1 1.6 2.4 2.4 4 2.4s3-.8 4-2.4"/><circle cx="9" cy="10" r=".8" fill="currentColor"/><circle cx="15" cy="10" r=".8" fill="currentColor"/></svg></div><h3>O dia 1 é fácil de propósito</h3><p>Ele termina achando moleza e já quer o adesivo de amanhã.</p></div>
+    <div class="card"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M5 4h10a3 3 0 013 3v13H8a3 3 0 01-3-3V4z"/><path d="M5 17a3 3 0 013-3h10"/></svg></div><h3>O dia 9 é o travamento, e tem guia</h3><p>Quase toda criança empaca no 7. O Guia do Dia 9 diz o que fazer.</p></div>
+    <div class="card"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8 6.8 19.6l1-5.8L3.5 9.7l5.9-.9L12 3.5z"/></svg></div><h3>No dia 21 ele senta sozinho</h3><p>A folha vira rotina: ele senta, faz, e você só cronometra.</p></div>
+  </div>
 </div>
 </section>
 
-<!-- BLOCO 3 -->
+<!-- 5. AMOSTRA ABERTA -->
+<section class="terra">
+<div class="wrap">
+  <h2>Olhe por dentro</h2>
+  <div class="pair">
+    <figure><img src="img/amostra-dia1.webp" width="760" height="1103" loading="lazy" decoding="async" alt="Folha do dia 1 do protocolo, com a tabuada do 2 e o cronômetro de 3 minutos"><figcaption>Folha do dia 1</figcaption></figure>
+    <figure><img src="img/amostra-painel.webp" width="760" height="1103" loading="lazy" decoding="async" alt="Painel dos 21 dias para colar na geladeira, com um espaço de adesivo para cada dia"><figcaption>Painel de adesivos da geladeira</figcaption></figure>
+  </div>
+  <p class="cap"><span>isto é o que você imprime amanhã</span></p>
+</div>
+</section>
+
+<!-- 6. IDEAL PARA VOCÊ QUE -->
+<section class="cream">
+<div class="wrap">
+  <h2>Ideal para você que</h2>
+  <div class="cards3 tick">
+    <div class="card"><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><p>Quer parar de brigar às 19h30</p></div>
+    <div class="card"><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><p>Já tentou material de atividades e sobrou trabalho para você</p></div>
+    <div class="card"><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><p>Quer algo que a criança faça sem você ensinar</p></div>
+  </div>
+</div>
+</section>
+
+<!-- 7. O QUE VEM DENTRO -->
 <section>
 <div class="wrap">
-<h2>Protocolo 21 Dias: Tabuada sem Guerra</h2>
-<p><b>Uma folha por dia. 10 minutos. Um cronômetro de 3 minutos no meio da folha.</b></p>
-<p>Ele não compete com você, compete com o relógio. Você não explica nada, porque a instrução do dia já está escrita na folha. Você só faz três coisas:</p>
-<ol class="steps">
-<li><b>Imprime</b> a folha do dia.</li>
-<li><b>Cronometra</b> 3 minutos.</li>
-<li><b>Cola o adesivo</b> no painel da geladeira.</li>
-</ol>
-<p>O resto o protocolo resolve: a ordem das tabuadas, o nível de dificuldade de cada dia e o dia em que todo mundo trava.</p>
-<div class="shots">
-<figure><img src="img/dia1.jpg" alt="Folha do Dia 1 com cronômetro de 3 minutos" loading="lazy" width="579" height="819"><figcaption>Folha do Dia 1</figcaption></figure>
-<figure><img src="img/painel.jpg" alt="Painel de 21 dias para a geladeira" loading="lazy" width="579" height="819"><figcaption>Painel da geladeira</figcaption></figure>
-</div>
+  <h2>O que vem dentro</h2>
+  <div class="inside">
+    <img src="img/kit.webp" width="1100" height="740" loading="lazy" decoding="async" alt="Kit do protocolo: capa, painel de 21 dias, cartela de adesivos, guia do dia 9 e certificado">
+    <div>
+      <ul class="ck">
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>21 folhas</b>, uma por dia, com a instrução escrita na própria folha</span></li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Painel de 21 dias</b> e cartela de adesivos</span></li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Guia do Dia 9</b>: o que fazer quando ele travar</span></li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>Certificado</b> do dia 21 para a geladeira</span></li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>PDF para imprimir em casa ou na papelaria, quantas vezes quiser</span></li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span><b>No Completo:</b> as 4 operações no mesmo formato de 21 dias<small>adição, subtração, multiplicação e divisão</small></span></li>
+      </ul>
+      <a class="btn co" data-co="CHECKOUT_FRONT" data-upgrade href="#">Quero o protocolo completo</a>
+    </div>
+  </div>
 </div>
 </section>
 
-<!-- BLOCO 4 -->
+<!-- 8. OFERTA -->
+<section class="cream" id="oferta">
+<div class="wrap">
+  <span class="pill">Oferta de lançamento</span>
+  <h2>Escolha a melhor opção para você</h2>
+  <div class="plans">
+    <div class="plan">
+      <h3>Protocolo da Tabuada</h3>
+      <p class="was">&nbsp;</p>
+      <p class="price">R$ 37,00</p>
+      <p class="pay">pagamento único</p>
+      <ul class="ck">
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>21 folhas da tabuada do 2 ao 9</li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Painel + cartela de adesivos</li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Guia do Dia 9</li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Certificado do dia 21</li>
+      </ul>
+      <a class="btn co" data-co="CHECKOUT_FRONT" data-upgrade href="#">Quero o protocolo</a>
+    </div>
+    <div class="plan best">
+      <span class="tag">Recomendado</span>
+      <h3>Completo: 4 operações</h3>
+      <p class="was"><span class="anchor">Valor total <s>R$ 147,00</s></span>&nbsp;</p>
+      <p class="price">R$ 87,00</p>
+      <p class="pay">pagamento único</p>
+      <ul class="ck">
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Tudo do Protocolo da Tabuada</li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Protocolo das 4 operações: adição, subtração, multiplicação e divisão, no mesmo formato de 21 dias</li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Direito de reimpressão para irmãos</li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Guia completo da mãe (os dias 1, 9, 14 e 21 explicados)</li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Acesso vitalício</li>
+        <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Envio imediato por e-mail</li>
+      </ul>
+      <a class="btn co" data-co="CHECKOUT_PREMIUM" href="#">Quero o completo</a>
+    </div>
+  </div>
+  <p class="fine">Pagamento único. Pix ou cartão. Acesso imediato no e-mail.</p>
+</div>
+</section>
+
+<!-- 10. PROVA SOCIAL (só números reais do produto) -->
+<section class="red">
+<div class="wrap">
+  <h2>Troque a briga das 19h30 por 10 minutos de cronômetro.</h2>
+  <div class="stats">
+    <div class="stat"><b>21</b><span>folhas, uma por dia</span></div>
+    <div class="stat"><b>10</b><span>minutos por dia</span></div>
+    <div class="stat"><b>3</b><span>minutos de cronômetro por folha</span></div>
+    <div class="stat"><b>4</b><span>operações no Completo</span></div>
+  </div>
+</div>
+</section>
+
+<!-- 11. GARANTIA -->
 <section>
 <div class="wrap">
-<h2>Os 21 dias, um por um</h2>
-<ul class="days">
-<li><b>Dias 1 e 2 — Tabuada do 2.</b> Fácil de propósito. Ele precisa terminar o primeiro dia achando moleza e querendo o adesivo de amanhã.</li>
-<li><b>Dias 3 e 4 — Tabuada do 3 e mistura com a do 2.</b></li>
-<li><b>Dias 5 e 6 — Tabuadas do 4 e do 5.</b> Aqui entram os truques visuais: o 5 termina sempre em 0 ou 5.</li>
-<li><b>Dia 7 — Revisão do 2 ao 5.</b> Adesivo especial na geladeira. Primeira semana fechada.</li>
-<li><b>Dia 8 — Tabuada do 6.</b></li>
-<li class="hot"><b>Dia 9 — Tabuada do 7: o dia do travamento.</b> É aqui que quase toda criança empaca. O Guia do Dia 9 diz exatamente o que fazer: a folha fica mais curta, o tempo fica igual e a meta é só terminar.</li>
-<li><b>Dias 10 e 11 — O 7 de novo, e mistura do 6 com o 7.</b></li>
-<li><b>Dias 12 e 13 — Tabuada do 8.</b></li>
-<li><b>Dia 14 — Revisão do 2 ao 8.</b> Segunda semana fechada.</li>
-<li><b>Dias 15 e 16 — Tabuada do 9</b>, com o truque dos dedos.</li>
-<li><b>Dias 17 e 18 — Tudo misturado, do 6 ao 9.</b></li>
-<li><b>Dia 19 — Contra o relógio:</b> quantas ele faz em 3 minutos?</li>
-<li><b>Dia 20 — Só as que ele errou.</b> A folha é montada a partir das contas marcadas nos dias anteriores.</li>
-<li><b>Dia 21 — Desafio final + certificado na geladeira.</b></li>
-</ul>
-<a class="btn cta" href="#precos">QUERO PARAR A GUERRA DA TABUADA</a>
+  <div class="guar">
+    <div class="vis">
+      <img src="img/certificado.webp" width="640" height="905" loading="lazy" decoding="async" alt="Certificado do dia 21 que acompanha o protocolo">
+      <svg viewBox="0 0 200 240" role="img" aria-label="Compra garantida"><use href="#selo"/></svg>
+    </div>
+    <div>
+      <h2><span data-gdays>21</span> dias de garantia</h2>
+      <p>Faça o protocolo por 21 dias. Se no dia 21 ele não estiver sentando sozinho para fazer a folha, você me manda uma mensagem e eu devolvo os R$ 37. Você fica com o protocolo.</p>
+      <p>Sem formulário e sem pergunta. É só responder o e-mail que chega com a sua compra.</p>
+      <a class="btn co" data-co="CHECKOUT_FRONT" data-upgrade href="#" style="margin-left:0">Quero começar hoje</a>
+    </div>
+  </div>
 </div>
 </section>
 
-<!-- BLOCO 5 -->
+<!-- 12. COMO FUNCIONA O ACESSO -->
+<section class="cream">
+<div class="wrap">
+  <h2>Como você recebe</h2>
+  <div class="steps">
+    <div class="step"><div class="ic"><em>1</em><svg class="i" viewBox="0 0 24 24"><circle cx="9" cy="20" r="1.4"/><circle cx="17" cy="20" r="1.4"/><path d="M3 4h2.5l2.2 11h10l2-8H7"/></svg></div><p>Você faz a compra, por Pix ou cartão</p></div>
+    <div class="step"><div class="ic"><em>2</em><svg class="i" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 7l8.5 6.5L20.5 7"/></svg></div><p>O e-mail com o PDF chega em minutos</p></div>
+    <div class="step"><div class="ic"><em>3</em><svg class="i" viewBox="0 0 24 24"><path d="M7 9V4h10v5"/><rect x="4" y="9" width="16" height="8" rx="2"/><rect x="7" y="14" width="10" height="6"/></svg></div><p>Você imprime e começa hoje</p></div>
+  </div>
+</div>
+</section>
+
+<!-- 13. FAQ -->
 <section>
-<div class="wrap">
-<h2>O que você recebe</h2>
-<ul class="check">
-<li>21 folhas do protocolo (tabuadas do 2 ao 9), uma por dia, com a instrução escrita na própria folha</li>
-<li>Cronômetro de 3 minutos impresso no centro de cada folha</li>
-<li>Painel de progresso de 21 dias para colar na geladeira</li>
-<li>Cartela de adesivos para imprimir (um por dia + 3 especiais)</li>
-<li>Guia do Dia 9: o que fazer quando ele travar</li>
-<li>Certificado de conclusão</li>
-<li>PDF para imprimir em casa ou na papelaria, quantas vezes quiser</li>
-<li>Acesso imediato no e-mail, logo após o pagamento</li>
-</ul>
-<div class="shots">
-<figure><img src="img/dia9.jpg" alt="Folha do Dia 9, mais curta" loading="lazy" width="579" height="819"><figcaption>Dia 9: folha mais curta</figcaption></figure>
-<figure><img src="img/certificado.jpg" alt="Certificado de conclusão" loading="lazy" width="579" height="819"><figcaption>Certificado do dia 21</figcaption></figure>
-</div>
+<div class="wrap narrow">
+  <h2>Perguntas que toda mãe faz</h2>
+  <details><summary>Preciso imprimir colorido?</summary><p>Não. As folhas funcionam em preto e branco. A cartela de adesivos pode ser impressa em papel adesivo, ou em papel comum com fita.</p></details>
+  <details><summary>Serve para que idade?</summary><p>Para crianças de 7 a 10 anos. O protocolo começa do 2 para qualquer idade; quem já sabe as primeiras tabuadas passa rápido pelos primeiros dias e ganha confiança logo de cara.</p></details>
+  <details><summary>E se ele travar antes do dia 21?</summary><p>Quase sempre acontece no dia 9, na tabuada do 7. Por isso existe o Guia do Dia 9: a folha fica mais curta, o tempo fica igual e a meta é só terminar.</p></details>
+  <details><summary>Como eu recebo?</summary><p>Logo depois do pagamento chega um e-mail com o PDF. É só imprimir em casa ou na papelaria, quantas vezes quiser.</p></details>
 </div>
 </section>
 
-<!-- BLOCO 6 -->
-<section>
-<div class="wrap">
-<h2>Os números do protocolo</h2>
-<div class="nums">
-<div><b>21</b>folhas, uma por dia</div>
-<div><b>10</b>minutos por dia, no total</div>
-<div><b>3</b>minutos de cronômetro por folha</div>
-<div><b>8</b>tabuadas, do 2 ao 9</div>
-<div><b>1</b>dia de travamento previsto, com guia próprio</div>
-<div><b>0</b>explicação que depende de você</div>
+<!-- 14. RODAPÉ -->
+<footer class="dark">
+<div class="wrap narrow" style="text-align:center">
+  <h2 style="font-size:clamp(22px,5.4vw,30px)">Hoje à noite, às 19h30, pode ser diferente.</h2>
+  <a class="btn co" data-co="CHECKOUT_FRONT" data-upgrade href="#">Quero o protocolo completo</a>
+  <div class="cols">
+    <p><b>Pagamento:</b> Pix ou cartão, processado pela Cakto</p>
+    <p><b>Garantia:</b> <span data-gdays>21</span> dias, sem formulário e sem pergunta</p>
+    <p id="wa" hidden><b>Suporte:</b> <a id="wal" href="#" rel="noopener">WhatsApp</a></p>
+    <p><a href="termos/">Termos de uso</a> · <a href="privacidade/">Política de privacidade</a></p>
+    <p class="brand">Lição em Paz</p>
+    <p style="font-size:13px;opacity:.7">Produto digital (PDF). Nenhum material físico é enviado.</p>
+  </div>
 </div>
-</div>
-</section>
+</footer>
 
-<!-- BLOCO 7 -->
-<section id="precos">
-<div class="wrap">
-<h2>Escolha seu protocolo</h2>
-<div class="plans">
-<div class="plan main">
-<span class="tag">o mais escolhido</span>
-<h3>PROTOCOLO DA TABUADA</h3>
-<div class="price">R$ 37</div>
-<ul class="check">
-<li>21 folhas da tabuada do 2 ao 9</li>
-<li>Painel + cartela de adesivos</li>
-<li>Guia do Dia 9</li>
-<li>Certificado</li>
-</ul>
-<a class="btn co" data-co="CHECKOUT_FRONT" href="#">QUERO COMEÇAR HOJE</a>
-</div>
-<div class="plan">
-<h3>PREMIUM — 4 OPERAÇÕES</h3>
-<div class="price">R$ 87</div>
-<ul class="check">
-<li>Tudo do Protocolo da Tabuada</li>
-<li>Protocolo das 4 operações: adição, subtração, multiplicação e divisão no mesmo formato de 21 dias</li>
-<li>Direito de reimpressão para irmãos</li>
-<li>Guia completo da mãe (os dias 1, 9, 14 e 21 explicados)</li>
-</ul>
-<a class="btn alt co" data-co="CHECKOUT_PREMIUM" href="#">QUERO O PREMIUM</a>
-</div>
-</div>
-<p class="note" style="margin-top:14px">Pagamento único. Pix ou cartão. Acesso imediato no e-mail.</p>
-</div>
-</section>
+<div class="sticky" id="sticky"><a class="btn co" data-co="CHECKOUT_FRONT" data-upgrade href="#">Quero o protocolo · R$ 37,00</a></div>
 
-<!-- BLOCO 8 -->
-<section>
-<div class="wrap">
-<div class="guar">
-<h2>Garantia do dia 21</h2>
-<p>Faça o protocolo por 21 dias. Se no dia 21 ele não estiver sentando sozinho para fazer a folha, você me manda uma mensagem e eu devolvo os R$ 37. Você fica com o protocolo.</p>
-<p style="margin:0">Sem formulário e sem pergunta. É só responder o e-mail que chega com a sua compra.</p>
+<!-- 9. MODAL DE UPGRADE -->
+<div class="up" id="up" role="dialog" aria-modal="true" aria-labelledby="upt">
+<div class="up-box">
+  <button class="up-x" type="button" aria-label="Fechar">×</button>
+  <h2 id="upt">Leve o Completo</h2>
+  <p class="up-price"><s>R$ 87,00</s><b>R$ 57,00</b></p>
+  <p class="up-save">R$ 30 a menos</p>
+  <ul class="ck">
+    <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Tudo do Protocolo da Tabuada: 21 folhas, painel, adesivos, guia do dia 9 e certificado</li>
+    <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>As 4 operações no mesmo formato de 21 dias: adição, subtração, multiplicação e divisão</li>
+    <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Direito de reimpressão para irmãos</li>
+    <li><svg class="i" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Guia completo da mãe (os dias 1, 9, 14 e 21 explicados)</li>
+  </ul>
+  <a class="btn y co" data-co="CHECKOUT_PREMIUM57" href="#">Quero o completo</a>
+  <a class="up-skip co" data-co="CHECKOUT_FRONT" href="#">quero só as 21 folhas por R$ 37</a>
 </div>
 </div>
-</section>
 
-<!-- BLOCO 9 -->
-<section>
-<div class="wrap">
-<h2>Perguntas que toda mãe faz</h2>
-<details><summary>"Eu não sei ensinar matemática."</summary><p>Não precisa. A instrução de cada dia está escrita na folha. Seu trabalho é imprimir, apertar o cronômetro e colar o adesivo.</p></details>
-<details><summary>"Meu filho não para quieto nem 5 minutos."</summary><p>Por isso a folha tem 3 minutos de cronômetro, e não uma hora de dever. O dia 1 é curto e fácil de propósito, para ele terminar com vontade de voltar no dia 2.</p></details>
-<details><summary>"E se ele travar no meio?"</summary><p>Ele vai travar, quase sempre no dia 9, na tabuada do 7. Esse dia tem um guia só para ele: a folha encolhe e a meta passa a ser só terminar.</p></details>
-<details><summary>"Serve para o meu filho do 5º ano que ainda não sabe a tabuada?"</summary><p>Sim. O protocolo começa do 2 para qualquer idade de 7 a 10 anos. Para quem já sabe as primeiras, os primeiros dias passam rápido e ele ganha confiança logo de cara.</p></details>
-<details><summary>"Preciso de impressora?"</summary><p>Ajuda, mas não é obrigatório. Você pode imprimir as 21 folhas de uma vez numa papelaria. São poucas páginas.</p></details>
-</div>
-</section>
-
-<!-- BLOCO 10 -->
-<section style="border:0">
-<div class="wrap">
-<h2>Hoje à noite, às 19h30, pode ser diferente.</h2>
-<p class="sub">10 minutos, uma folha e um cronômetro. Você só cronometra.</p>
-<a class="btn co" data-co="CHECKOUT_FRONT" href="#">QUERO O PROTOCOLO POR R$ 37</a>
-</div>
-</section>
-
-<footer><div class="wrap">Lição em Paz · Protocolos de 10 minutos para acabar com a guerra do dever de casa.<br>Produto digital (PDF). Pagamento processado pela Cakto.</div></footer>
-
-<div class="sticky" id="sticky"><div class="wrap"><span>Protocolo 21 Dias — R$ 37</span><a class="co" data-co="CHECKOUT_FRONT" href="#">COMEÇAR</a></div></div>
-
-<div class="modal" id="ds" role="dialog" aria-modal="true" aria-labelledby="dst">
-<div class="box">
-<button class="x" aria-label="Fechar" id="dsx">×</button>
-<h2 id="dst">Prefere começar menor?</h2>
-<p>Só a tabuada do 2 ao 5, em 10 dias, por <b>R$ 19,90</b>. Se funcionar, você completa depois.</p>
-<a class="btn co" data-co="CHECKOUT_DOWNSELL" href="#">QUERO A VERSÃO DO 2 AO 5</a>
+<!-- Pop-up de saída (downsell) -->
+<div class="up" id="ds" role="dialog" aria-modal="true" aria-labelledby="dst">
+<div class="up-box light">
+  <button class="up-x" type="button" aria-label="Fechar">×</button>
+  <h2 id="dst">Prefere começar menor?</h2>
+  <p>Só a tabuada do 2 ao 5, em 10 dias, por <b>R$ 19,90</b>. Se funcionar, você completa depois.</p>
+  <a class="btn co" data-co="CHECKOUT_DOWNSELL" href="#">Quero a versão do 2 ao 5</a>
 </div>
 </div>
 
 <script>
 (function(){
+  var L = window.LEP, html = document.documentElement;
   var qs = location.search ? location.search.slice(1) : "";
-  document.querySelectorAll("a.co").forEach(function(a){
-    var url = window.LEP[a.getAttribute("data-co")];
-    a.href = url + (qs ? (url.indexOf("?")>-1 ? "&" : "?") + qs : "");
-    a.addEventListener("click", function(){ leaving = true; });
-  });
+  var UP = !!L.CHECKOUT_PREMIUM57;
+  function ev(n){ try { window.clarity && clarity("event", n); } catch(e){} }
+  function withQs(u){ return u + (qs ? (u.indexOf("?") > -1 ? "&" : "?") + qs : ""); }
+
+  if (L.ANCHOR_147) html.classList.add("has-anchor");
+  document.querySelectorAll("[data-gdays]").forEach(function(n){ n.textContent = L.GUARANTEE_DAYS; });
+  if (L.WHATSAPP) { var w = document.getElementById("wa"); w.hidden = false; document.getElementById("wal").href = "https://wa.me/" + L.WHATSAPP; }
+
   var leaving = false;
+  document.querySelectorAll("a.co").forEach(function(a){
+    var u = L[a.getAttribute("data-co")];
+    if (!u) { a.style.display = "none"; return; }
+    a.href = withQs(u);
+    a.addEventListener("click", function(){ leaving = true; ev("clique_" + a.getAttribute("data-co")); });
+  });
+
+  /* ----- modal de upgrade ----- */
+  var up = document.getElementById("up"), ds = document.getElementById("ds"), lastFocus = null;
+  function open(m, opener){ lastFocus = opener || document.activeElement; m.classList.add("on"); html.style.overflow = "hidden"; var f = m.querySelector(".btn"); if (f) f.focus(); }
+  function close(m){ m.classList.remove("on"); if (!up.classList.contains("on") && !ds.classList.contains("on")) html.style.overflow = ""; if (lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch(e){} } }
+  document.querySelectorAll("[data-upgrade]").forEach(function(a){
+    a.addEventListener("click", function(e){
+      if (!UP) return;
+      e.preventDefault(); leaving = false; ev("abriu_modal_upgrade"); open(up, a);
+    });
+  });
+  [up, ds].forEach(function(m){
+    m.addEventListener("click", function(e){ if (e.target === m) close(m); });
+    m.querySelector(".up-x").addEventListener("click", function(){ close(m); });
+  });
+  document.addEventListener("keydown", function(e){
+    var m = up.classList.contains("on") ? up : ds.classList.contains("on") ? ds : null;
+    if (!m) return;
+    if (e.key === "Escape") { close(m); return; }
+    if (e.key === "Tab") {
+      var f = m.querySelectorAll("a[href],button"); f = Array.prototype.filter.call(f, function(x){ return x.offsetParent !== null; });
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  /* ----- botão fixo a partir de 40% ----- */
   var sticky = document.getElementById("sticky");
   addEventListener("scroll", function(){
     var h = document.documentElement.scrollHeight - innerHeight;
     sticky.classList.toggle("on", h > 0 && scrollY / h >= 0.4);
   }, {passive:true});
 
-  var modal = document.getElementById("ds");
+  /* ----- carrossel ----- */
+  var tr = document.getElementById("track"), bar = document.getElementById("bar");
+  function step(){ var c = tr.querySelector(".sheet"); return c ? c.getBoundingClientRect().width + 14 : 250; }
+  function prog(){ var max = tr.scrollWidth - tr.clientWidth; bar.style.width = (5 + 95 * (max > 0 ? tr.scrollLeft / max : 0)) + "%"; }
+  tr.addEventListener("scroll", prog, {passive:true}); prog();
+  document.querySelector(".arrow.l").addEventListener("click", function(){ tr.scrollBy({left: -step() * 2, behavior: "smooth"}); });
+  document.querySelector(".arrow.r").addEventListener("click", function(){ tr.scrollBy({left: step() * 2, behavior: "smooth"}); });
+  tr.addEventListener("keydown", function(e){ if (e.key === "ArrowRight") tr.scrollBy({left: step(), behavior: "smooth"}); if (e.key === "ArrowLeft") tr.scrollBy({left: -step(), behavior: "smooth"}); });
+  var down = false, sx = 0, sl = 0;
+  tr.addEventListener("pointerdown", function(e){ if (e.pointerType !== "mouse") return; down = true; sx = e.clientX; sl = tr.scrollLeft; tr.classList.add("drag"); });
+  addEventListener("pointermove", function(e){ if (down) tr.scrollLeft = sl - (e.clientX - sx); });
+  addEventListener("pointerup", function(){ if (down) { down = false; tr.classList.remove("drag"); } });
+
+  /* ----- pop-up de saída (1x por sessão) ----- */
   function seen(){ try { return sessionStorage.getItem("lep_ds") === "1"; } catch(e){ return window.__ds; } }
-  function mark(){ try { sessionStorage.setItem("lep_ds","1"); } catch(e){} window.__ds = true; }
-  function show(){ if (seen() || leaving) return false; mark(); modal.classList.add("on"); return true; }
-  document.getElementById("dsx").onclick = function(){ modal.classList.remove("on"); };
-  modal.addEventListener("click", function(e){ if (e.target === modal) modal.classList.remove("on"); });
-  document.addEventListener("mouseout", function(e){ if (!e.relatedTarget && e.clientY <= 0) show(); });
+  function mark(){ try { sessionStorage.setItem("lep_ds", "1"); } catch(e){} window.__ds = true; }
+  function showDs(){ if (seen() || leaving || up.classList.contains("on")) return false; mark(); ev("abriu_popup_saida"); open(ds); return true; }
+  document.addEventListener("mouseout", function(e){ if (!e.relatedTarget && e.clientY <= 0) showDs(); });
   if (!seen()) {
     try {
       history.pushState({lep:1}, "", location.href);
-      addEventListener("popstate", function(){
-        if (!show()) history.back();
-      });
+      addEventListener("popstate", function(){ if (!showDs()) history.back(); });
     } catch(e){}
   }
 })();
