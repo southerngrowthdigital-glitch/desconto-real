@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Protocolo 21 Dias: Tabuada sem Guerra · Lição em Paz</title>
-<meta name="description" content="Uma folha por dia, 10 minutos e um cronômetro de 3 minutos. Ele para de fugir da tabuada em 21 dias. Você só cronometra.">
+<meta name="description" content="Às 19h30 começa a mesma cena. São 10 minutos por dia e um cronômetro de 3 minutos. Ele para de fugir da tabuada em 21 dias. Você só cronometra.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Protocolo 21 Dias: Tabuada sem Guerra">
 <meta property="og:description" content="10 minutos por dia. Você só cronometra.">
@@ -20,12 +20,11 @@ window.LEP = {
   CLARITY_ID: "zfasou3b30",
   CHECKOUT_FRONT: "https://pay.cakto.com.br/jsn6oz4_1336920",
   CHECKOUT_PREMIUM: "https://pay.cakto.com.br/38t84e2_1336966",
-  CHECKOUT_PREMIUM57: "",   /* oferta de R$ 57 do modal: o modal só liga quando este link existir */
+  CHECKOUT_PREMIUM57: "",   /* oferta de R$ 57 do modal. Vazio = o modal usa o checkout de R$ 87 */
   CHECKOUT_DOWNSELL: "https://pay.cakto.com.br/dukudk7_1336976",
   ANCHOR_147: true,         /* mostra o R$ 147 riscado (decisão do Chefe) */
   GUARANTEE_DAYS: 30,       /* dias de garantia mostrados no selo e no texto */
-  WHATSAPP: "",             /* número de suporte, só dígitos com DDI (ex.: 5511999999999) */
-  /* DEPOIMENTOS REAIS: vazio = os dois blocos de reviews ficam ocultos.
+  /* DEPOIMENTOS: vazio = os dois blocos de reviews ficam ocultos.
      Formato: {n:"Nome S.", city:"Cidade", who:"mãe do João, 3º ano", stars:5, text:"...", short:"frase curta"} */
   REVIEWS: []
 };
@@ -79,7 +78,7 @@ mark{background:linear-gradient(transparent 10%,var(--mark) 10% 92%,transparent 
 
 /* 2 hero */
 .hero{padding:16px 0 36px;border-bottom:1px solid var(--line)}
-.hero .sub{text-align:center;font-size:18px;line-height:1.45;margin:0 auto;max-width:520px}
+.hero .sub{text-align:center;font-size:18px;line-height:1.45;margin:0 auto;max-width:540px}
 .hero .shot{width:100%;max-width:540px;margin:-8px auto -14px}
 .price-line{text-align:center;font-size:20px;margin-top:2px}
 .price-line s{color:var(--soft)}
@@ -122,6 +121,8 @@ mark{background:linear-gradient(transparent 10%,var(--mark) 10% 92%,transparent 
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.05)}
 .card .ic{width:46px;height:46px;border-radius:14px;background:var(--cream);color:var(--terra);display:flex;align-items:center;justify-content:center;margin-bottom:10px}
 .card p{color:var(--soft);font-size:15.5px;margin-top:6px}
+.cost{text-align:center;font-weight:800;font-size:19px;margin-top:24px;max-width:640px;margin-left:auto;margin-right:auto}
+.cost span{background:linear-gradient(transparent 62%,rgba(255,230,163,.75) 62%);padding:0 4px}
 
 /* 5 sample */
 .terra{background:var(--terra);color:#fff}
@@ -132,7 +133,6 @@ mark{background:linear-gradient(transparent 10%,var(--mark) 10% 92%,transparent 
 .pair figcaption{font-size:13.5px;text-align:center;padding-top:8px;font-weight:600}
 .cap{text-align:center;font-weight:800;font-size:19px;margin-top:20px}
 .cap span{background:linear-gradient(transparent 62%,rgba(255,230,163,.55) 62%);padding:0 4px}
-
 
 /* reviews */
 .rv-grid{display:grid;gap:14px;margin-top:8px}
@@ -273,7 +273,7 @@ footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font
 <header class="hero">
 <div class="wrap narrow">
   <h1 style="margin-top:14px">Ele para de fugir da tabuada em <mark>21 dias</mark>.</h1>
-  <p class="sub" style="margin-top:12px"><b>10 minutos por dia</b> e um cronômetro de 3 minutos.<br><b>Você só cronometra.</b></p>
+  <p class="sub" style="margin-top:12px">Às 19h30 começa a mesma cena: o lápis longe do papel, o “presta atenção” pela terceira vez, o choro.<br><b>São 10 minutos por dia e um cronômetro de 3. Você só cronometra.</b></p>
   <img class="shot" src="img/hero.webp" width="1100" height="800" fetchpriority="high" decoding="async" alt="Capa do Protocolo 21 Dias: Tabuada sem Guerra, ao lado da folha do dia 1 e do painel de 21 dias">
   <p class="price-line"><span class="anchor was">De <s>R$ 147,00</s></span><span class="l2"><span class="anchor">por apenas </span><span class="noanchor">Apenas </span><b>R$ 37,00</b></span></p>
   <a class="btn co" data-co="CHECKOUT_FRONT" data-upgrade href="#">Quero o protocolo completo</a>
@@ -313,14 +313,16 @@ footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font
 <!-- 4. POR QUE EXISTE -->
 <section>
 <div class="wrap">
-  <h2>Por que o protocolo existe</h2>
-  <p class="lead">A briga não começa porque seu filho é “ruim de matemática”. Começa porque não existe ordem, tempo definido nem linha de chegada.</p>
+  <h2>A cena das 19h30</h2>
+  <p class="lead">Você senta com ele depois de um dia inteiro. A folha tem 20 continhas. Ele erra a primeira, apaga, começa a chutar. Em quinze minutos você já falou “presta atenção” três vezes e ele já está com o lápis longe do papel.</p>
+  <p class="lead">Não é preguiça sua e não é falta de inteligência dele. É que ninguém te ensinou a ensinar tabuada — e material de “atividades” só devolve mais folha para <b>você</b> corrigir depois.</p>
   <img class="mesa" src="img/mesa.webp" width="1400" height="760" loading="lazy" decoding="async" alt="Montagem com a folha do dia 1, o painel de 21 dias, um cronômetro de 3 minutos, adesivos e um lápis sobre a mesa">
   <div class="cards3">
     <div class="card"><div class="ic"><svg class="i" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 14c1 1.6 2.4 2.4 4 2.4s3-.8 4-2.4"/><circle cx="9" cy="10" r=".8" fill="currentColor"/><circle cx="15" cy="10" r=".8" fill="currentColor"/></svg></div><h3>O dia 1 é fácil de propósito</h3><p>Ele termina achando moleza e já quer o adesivo de amanhã.</p></div>
     <div class="card"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M5 4h10a3 3 0 013 3v13H8a3 3 0 01-3-3V4z"/><path d="M5 17a3 3 0 013-3h10"/></svg></div><h3>O dia 9 é o travamento, e tem guia</h3><p>Quase toda criança empaca no 7. O Guia do Dia 9 diz o que fazer.</p></div>
     <div class="card"><div class="ic"><svg class="i" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.8 6.8 19.6l1-5.8L3.5 9.7l5.9-.9L12 3.5z"/></svg></div><h3>No dia 21 ele senta sozinho</h3><p>A folha vira rotina: ele senta, faz, e você só cronometra.</p></div>
   </div>
+  <p class="cost">Cada noite dessas custa 40 minutos e um pouco da sua paciência. <span>O protocolo devolve os dois.</span></p>
 </div>
 </section>
 
@@ -336,7 +338,7 @@ footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font
 </div>
 </section>
 
-<!-- 5b. REVIEWS (só aparece com LEP.REVIEWS preenchido) -->
+<!-- 5b. REVIEWS -->
 <section id="reviews" hidden>
 <div class="wrap">
   <h2>O que estão dizendo sobre o protocolo</h2>
@@ -485,7 +487,6 @@ footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font
   <div class="cols">
     <p><b>Pagamento:</b> Pix ou cartão, processado pela Cakto</p>
     <p><b>Garantia:</b> <span data-gdays>30</span> dias, sem formulário e sem pergunta</p>
-    <p id="wa" hidden><b>Suporte:</b> <a id="wal" href="#" rel="noopener">WhatsApp</a></p>
     <p><a href="termos/">Termos de uso</a> · <a href="privacidade/">Política de privacidade</a></p>
     <p class="brand">Lição em Paz</p>
     <p style="font-size:13px;opacity:.7">Produto digital (PDF). Nenhum material físico é enviado.</p>
@@ -527,10 +528,16 @@ footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font
 (function(){
   var L = window.LEP, html = document.documentElement;
   var qs = location.search ? location.search.slice(1) : "";
+  var HAS57 = !!L.CHECKOUT_PREMIUM57;
+  if (!HAS57) L.CHECKOUT_PREMIUM57 = L.CHECKOUT_PREMIUM;   /* modal funciona mesmo sem a oferta de R$ 57 */
   var UP = !!L.CHECKOUT_PREMIUM57;
+  if (!HAS57) {
+    var _p = document.querySelector("#up .up-price"), _s = document.querySelector("#up .up-save");
+    if (_p) _p.innerHTML = "<b>R$ 87,00</b>";
+    if (_s) _s.textContent = "as 4 operações no mesmo formato";
+  }
   function ev(n){ try { window.clarity && clarity("event", n); } catch(e){} }
   function withQs(u){ return u + (qs ? (u.indexOf("?") > -1 ? "&" : "?") + qs : ""); }
-
 
   (function(){
     var R = L.REVIEWS || []; if (!R.length) return;
@@ -549,7 +556,6 @@ footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font
 
   if (L.ANCHOR_147) html.classList.add("has-anchor");
   document.querySelectorAll("[data-gdays]").forEach(function(n){ n.textContent = L.GUARANTEE_DAYS; });
-  if (L.WHATSAPP) { var w = document.getElementById("wa"); w.hidden = false; document.getElementById("wal").href = "https://wa.me/" + L.WHATSAPP; }
 
   var leaving = false;
   document.querySelectorAll("a.co").forEach(function(a){
