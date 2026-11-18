@@ -24,7 +24,10 @@ window.LEP = {
   CHECKOUT_DOWNSELL: "https://pay.cakto.com.br/dukudk7_1336976",
   ANCHOR_147: true,         /* mostra o R$ 147 riscado (decisão do Chefe) */
   GUARANTEE_DAYS: 30,       /* dias de garantia mostrados no selo e no texto */
-  WHATSAPP: ""              /* número de suporte, só dígitos com DDI (ex.: 5511999999999) */
+  WHATSAPP: "",             /* número de suporte, só dígitos com DDI (ex.: 5511999999999) */
+  /* DEPOIMENTOS REAIS: vazio = os dois blocos de reviews ficam ocultos.
+     Formato: {n:"Nome S.", city:"Cidade", who:"mãe do João, 3º ano", stars:5, text:"...", short:"frase curta"} */
+  REVIEWS: []
 };
 </script>
 <script>
@@ -100,16 +103,16 @@ mark{background:linear-gradient(transparent 10%,var(--mark) 10% 92%,transparent 
 .track{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px max(18px,calc((100vw - 1040px)/2 + 18px)) 18px;scrollbar-width:none;-webkit-overflow-scrolling:touch;cursor:grab;scroll-padding:0 18px}
 .track::-webkit-scrollbar{display:none}
 .track.drag{scroll-snap-type:none;cursor:grabbing}
-.sheet{flex:0 0 62vw;max-width:250px;scroll-snap-align:start;margin:0}
+.sheet{flex:0 0 66vw;max-width:270px;scroll-snap-align:start;margin:0}
 .sheet img{width:100%;border-radius:12px;background:#fff;box-shadow:0 12px 26px rgba(0,0,0,.4);user-select:none;-webkit-user-drag:none;pointer-events:none}
 .sheet figcaption{padding-top:10px;font-size:14px;line-height:1.35;color:rgba(255,255,255,.85)}
-.sheet figcaption b{display:block;font-size:17px;color:var(--mark)}
+.sheet figcaption{font-size:15px;font-weight:600;color:#fff}
 .sheet.hot img{outline:3px solid var(--gold);outline-offset:2px}
 .bar{height:4px;background:rgba(255,255,255,.18);border-radius:4px;max-width:260px;margin:4px auto 0;overflow:hidden}
 .bar i{display:block;height:100%;width:5%;background:var(--gold);border-radius:4px}
 .arrow{display:none;position:absolute;top:38%;width:46px;height:46px;border-radius:50%;border:0;background:#fff;color:var(--ink);box-shadow:0 6px 16px rgba(0,0,0,.35);cursor:pointer;align-items:center;justify-content:center}
 .arrow.l{left:12px}.arrow.r{right:12px}
-@media(min-width:760px){.arrow{display:flex}.sheet{flex-basis:230px}}
+@media(min-width:760px){.arrow{display:flex}.sheet{flex-basis:250px}}
 .drag-hint{text-align:center;font-size:13.5px;color:rgba(255,255,255,.7);margin-top:10px}
 
 /* 4 why */
@@ -129,6 +132,19 @@ mark{background:linear-gradient(transparent 10%,var(--mark) 10% 92%,transparent 
 .pair figcaption{font-size:13.5px;text-align:center;padding-top:8px;font-weight:600}
 .cap{text-align:center;font-weight:800;font-size:19px;margin-top:20px}
 .cap span{background:linear-gradient(transparent 62%,rgba(255,230,163,.55) 62%);padding:0 4px}
+
+
+/* reviews */
+.rv-grid{display:grid;gap:14px;margin-top:8px}
+@media(min-width:760px){.rv-grid{grid-template-columns:repeat(3,1fr)}}
+.rv{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px;box-shadow:0 6px 18px rgba(0,0,0,.05)}
+.rv .who{display:flex;gap:10px;align-items:center;margin-bottom:8px}
+.rv .av{width:42px;height:42px;border-radius:50%;color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;flex:none}
+.rv .nm{font-weight:800;font-size:15px;line-height:1.2}.rv .nm small{display:block;font-weight:400;color:var(--soft);font-size:13px}
+.rv .st{color:#e0a100;letter-spacing:2px;font-size:15px}.rv .st i{color:#ddd;font-style:normal}
+.rv p{font-size:15.5px;line-height:1.5;margin:6px 0 0}
+.rv-note{font-size:12.5px;color:var(--soft);text-align:center;margin-top:12px}
+.rv-strip{padding:22px 0}.rv-strip .rv p{font-size:14.5px}
 
 /* 6 for you */
 .cream{background:var(--cream)}
@@ -274,32 +290,19 @@ footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font
 
 <!-- 3. CARROSSEL DAS 21 FOLHAS -->
 <section class="dark" id="folhas">
-<div class="wrap narrow"><h2>Veja as 21 folhas, do dia 1 ao dia 21</h2>
-<p class="lead">As folhas de verdade, na ordem em que ele faz. A dificuldade sobe um pouco a cada dia.</p></div>
+<div class="wrap narrow"><h2>Veja como as folhas mudam do dia 1 ao dia 21</h2>
+<p class="lead">Folhas de verdade, em momentos-chave. A dificuldade sobe um pouco a cada dia.</p></div>
 <div class="car">
   <button class="arrow l" type="button" aria-label="Folhas anteriores"><svg class="i" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-  <div class="track" id="track" tabindex="0" aria-label="Carrossel com as 21 folhas do protocolo">
-    <figure class="sheet"><img src="img/dias/dia-01.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 1: Tabuada do 2"><figcaption><b>Dia 1</b>Tabuada do 2</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-02.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 2: Tabuada do 2 de novo"><figcaption><b>Dia 2</b>Tabuada do 2 de novo</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-03.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 3: Tabuada do 3"><figcaption><b>Dia 3</b>Tabuada do 3</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-04.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 4: Tabuadas do 2 e do 3 misturadas"><figcaption><b>Dia 4</b>Tabuadas do 2 e do 3 misturadas</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-05.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 5: Tabuada do 4"><figcaption><b>Dia 5</b>Tabuada do 4</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-06.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 6: Tabuada do 5"><figcaption><b>Dia 6</b>Tabuada do 5</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-07.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 7: Revisão do 2 ao 5"><figcaption><b>Dia 7</b>Revisão do 2 ao 5</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-08.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 8: Tabuada do 6"><figcaption><b>Dia 8</b>Tabuada do 6</figcaption></figure>
-    <figure class="sheet hot"><img src="img/dias/dia-09.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 9: Tabuada do 7: o dia do travamento"><figcaption><b>Dia 9</b>Tabuada do 7: o dia do travamento</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-10.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 10: Tabuada do 7 de novo"><figcaption><b>Dia 10</b>Tabuada do 7 de novo</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-11.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 11: Tabuadas do 6 e do 7 misturadas"><figcaption><b>Dia 11</b>Tabuadas do 6 e do 7 misturadas</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-12.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 12: Tabuada do 8"><figcaption><b>Dia 12</b>Tabuada do 8</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-13.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 13: Tabuada do 8 de novo"><figcaption><b>Dia 13</b>Tabuada do 8 de novo</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-14.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 14: Revisão do 2 ao 8"><figcaption><b>Dia 14</b>Revisão do 2 ao 8</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-15.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 15: Tabuada do 9"><figcaption><b>Dia 15</b>Tabuada do 9</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-16.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 16: Tabuada do 9 de novo"><figcaption><b>Dia 16</b>Tabuada do 9 de novo</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-17.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 17: Tabuadas do 6 ao 9 misturadas"><figcaption><b>Dia 17</b>Tabuadas do 6 ao 9 misturadas</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-18.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 18: Tabuadas do 6 ao 9, de novo"><figcaption><b>Dia 18</b>Tabuadas do 6 ao 9, de novo</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-19.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 19: Contra o relógio"><figcaption><b>Dia 19</b>Contra o relógio</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-20.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 20: Só as que você errou"><figcaption><b>Dia 20</b>Só as que você errou</figcaption></figure>
-    <figure class="sheet"><img src="img/dias/dia-21.webp" width="480" height="679" loading="lazy" decoding="async" alt="Folha do dia 21: Desafio final"><figcaption><b>Dia 21</b>Desafio final</figcaption></figure>
+  <div class="track" id="track" tabindex="0" aria-label="Carrossel com as folhas e o painel do protocolo">
+    <figure class="sheet"><img src="img/car/s1.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Folha do dia 1, inteira: 12 contas grandes, moldura verde e o cronômetro de 3 minutos no centro"><figcaption>o dia 1 é de propósito fácil</figcaption></figure>
+    <figure class="sheet"><img src="img/car/s2.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Folha do dia 4, levemente inclinada, com 16 contas e o tempo de 3 minutos num selo no canto"><figcaption>a dificuldade sobe devagar</figcaption></figure>
+    <figure class="sheet"><img src="img/car/s3.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Aproximação do relógio e da instrução da folha do dia 9"><figcaption>3 minutos. Você só cronometra.</figcaption></figure>
+    <figure class="sheet hot"><img src="img/car/s4.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Folha do dia 9 inteira, com moldura vermelha e a tarja Dia do Travamento"><figcaption>o dia 9 é onde ele trava — e tem guia</figcaption></figure>
+    <figure class="sheet"><img src="img/car/s5.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Painel de 21 dias preso na geladeira com ímãs, com os primeiros dias já marcados com adesivos"><figcaption>o progresso fica à vista</figcaption></figure>
+    <figure class="sheet"><img src="img/car/s6.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Folha do dia 20: linhas em branco para copiar as contas que errou, moldura tracejada"><figcaption>no dia 20 ele só refaz o que errou</figcaption></figure>
+    <figure class="sheet"><img src="img/car/s7.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Folha do dia 21, o desafio final, com moldura dupla e espaço para data e assinatura"><figcaption>no dia 21 ele senta sozinho</figcaption></figure>
+    <figure class="sheet"><img src="img/car/s8.webp" width="800" height="1000" loading="lazy" decoding="async" alt="Primeira página do Guia do Dia 9"><figcaption>e você não fica sem saber o que fazer</figcaption></figure>
   </div>
   <button class="arrow r" type="button" aria-label="Próximas folhas"><svg class="i" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
 </div>
@@ -330,6 +333,15 @@ footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font
     <figure><img src="img/amostra-painel.webp" width="760" height="1103" loading="lazy" decoding="async" alt="Painel dos 21 dias para colar na geladeira, com um espaço de adesivo para cada dia"><figcaption>Painel de adesivos da geladeira</figcaption></figure>
   </div>
   <p class="cap"><span>isto é o que você imprime amanhã</span></p>
+</div>
+</section>
+
+<!-- 5b. REVIEWS (só aparece com LEP.REVIEWS preenchido) -->
+<section id="reviews" hidden>
+<div class="wrap">
+  <h2>O que estão dizendo sobre o protocolo</h2>
+  <div class="rv-grid" id="rv-full"></div>
+  <p class="rv-note">Relatos de quem testou o protocolo em casa e em sala.</p>
 </div>
 </section>
 
@@ -364,6 +376,11 @@ footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font
     </div>
   </div>
 </div>
+</section>
+
+<!-- 7b. REVIEWS CURTAS acima da oferta -->
+<section id="reviews-strip" class="rv-strip" hidden>
+<div class="wrap"><div class="rv-grid" id="rv-short"></div></div>
 </section>
 
 <!-- 8. OFERTA -->
@@ -513,6 +530,22 @@ footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font
   var UP = !!L.CHECKOUT_PREMIUM57;
   function ev(n){ try { window.clarity && clarity("event", n); } catch(e){} }
   function withQs(u){ return u + (qs ? (u.indexOf("?") > -1 ? "&" : "?") + qs : ""); }
+
+
+  (function(){
+    var R = L.REVIEWS || []; if (!R.length) return;
+    var cols = ["#B36230","#2CAA33","#4B1412","#3b6fb6","#8a4fa0","#c27a00"];
+    function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+    function card(r,i,txt){
+      var ini = r.n.split(" ").map(function(p){return p[0];}).join("").slice(0,2).toUpperCase();
+      var st = "★★★★★".slice(0, r.stars||5) + "<i>" + "★★★★★".slice(r.stars||5) + "</i>";
+      return '<div class="rv"><div class="who"><div class="av" style="background:'+cols[i%cols.length]+'">'+esc(ini)+'</div><div class="nm">'+esc(r.n)+'<small>'+esc(r.city)+' · '+esc(r.who)+'</small></div></div><div class="st" aria-label="'+(r.stars||5)+' de 5 estrelas">'+st+'</div><p>'+esc(txt)+'</p></div>';
+    }
+    document.getElementById("rv-full").innerHTML = R.map(function(r,i){ return card(r,i,r.text); }).join("");
+    document.getElementById("reviews").hidden = false;
+    var sh = R.filter(function(r){ return r.short; }).slice(0,3);
+    if (sh.length) { document.getElementById("rv-short").innerHTML = sh.map(function(r,i){ return card(r,i,r.short); }).join(""); document.getElementById("reviews-strip").hidden = false; }
+  })();
 
   if (L.ANCHOR_147) html.classList.add("has-anchor");
   document.querySelectorAll("[data-gdays]").forEach(function(n){ n.textContent = L.GUARANTEE_DAYS; });
