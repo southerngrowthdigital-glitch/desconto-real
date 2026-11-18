@@ -22,8 +22,8 @@ window.LEP = {
   CHECKOUT_PREMIUM: "https://pay.cakto.com.br/38t84e2_1336966",
   CHECKOUT_PREMIUM57: "",   /* oferta de R$ 57 do modal: o modal só liga quando este link existir */
   CHECKOUT_DOWNSELL: "https://pay.cakto.com.br/dukudk7_1336976",
-  ANCHOR_147: false,        /* riscar R$ 147 só se esse for um preço real já praticado */
-  GUARANTEE_DAYS: 21,       /* dias de garantia mostrados no selo e no texto */
+  ANCHOR_147: true,         /* mostra o R$ 147 riscado (decisão do Chefe) */
+  GUARANTEE_DAYS: 30,       /* dias de garantia mostrados no selo e no texto */
   WHATSAPP: ""              /* número de suporte, só dígitos com DDI (ex.: 5511999999999) */
 };
 </script>
@@ -80,6 +80,8 @@ mark{background:linear-gradient(transparent 10%,var(--mark) 10% 92%,transparent 
 .hero .shot{width:100%;max-width:540px;margin:-8px auto -14px}
 .price-line{text-align:center;font-size:20px;margin-top:2px}
 .price-line s{color:var(--soft)}
+.has-anchor .price-line .was{display:block;font-size:18px;line-height:1.2;color:var(--soft)}
+.l2{white-space:nowrap}
 .price-line b{font-size:40px;line-height:1;letter-spacing:-.02em;color:var(--ink)}
 .anchor{display:none}
 .has-anchor .anchor{display:inline}
@@ -241,7 +243,7 @@ footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font
   <path id="arcB" d="M36 100 A64 64 0 0 0 164 100" fill="none"/>
   <text font-family="Inter,Arial,sans-serif" font-weight="800" font-size="12.5" letter-spacing="1.4" fill="#1C1C1C"><textPath href="#arcT" startOffset="50%" text-anchor="middle">COMPRA GARANTIDA</textPath></text>
   <text font-family="Inter,Arial,sans-serif" font-weight="800" font-size="12.5" letter-spacing="1.4" fill="#1C1C1C"><textPath href="#arcB" startOffset="50%" text-anchor="middle">100% SEGURO</textPath></text>
-  <text x="100" y="112" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="52" fill="#1C1C1C" data-gdays>21</text>
+  <text x="100" y="112" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="800" font-size="52" fill="#1C1C1C" data-gdays>30</text>
   <text x="100" y="132" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-weight="400" font-size="16" fill="#1C1C1C">Dias</text>
 </symbol>
 <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
@@ -257,7 +259,7 @@ footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font
   <h1 style="margin-top:14px">Ele para de fugir da tabuada em <mark>21 dias</mark>.</h1>
   <p class="sub" style="margin-top:12px"><b>10 minutos por dia</b> e um cronômetro de 3 minutos.<br><b>Você só cronometra.</b></p>
   <img class="shot" src="img/hero.webp" width="1100" height="800" fetchpriority="high" decoding="async" alt="Capa do Protocolo 21 Dias: Tabuada sem Guerra, ao lado da folha do dia 1 e do painel de 21 dias">
-  <p class="price-line"><span class="anchor">De <s>R$ 147,00</s> por apenas </span><span class="noanchor">Apenas </span><b>R$ 37,00</b></p>
+  <p class="price-line"><span class="anchor was">De <s>R$ 147,00</s></span><span class="l2"><span class="anchor">por apenas </span><span class="noanchor">Apenas </span><b>R$ 37,00</b></span></p>
   <a class="btn co" data-co="CHECKOUT_FRONT" data-upgrade href="#">Quero o protocolo completo</a>
   <p class="micro">Você recebe na hora, direto no seu e-mail</p>
   <div class="seals">
@@ -426,7 +428,7 @@ footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font
       <svg viewBox="0 0 200 240" role="img" aria-label="Compra garantida"><use href="#selo"/></svg>
     </div>
     <div>
-      <h2><span data-gdays>21</span> dias de garantia</h2>
+      <h2><span data-gdays>30</span> dias de garantia</h2>
       <p>Faça o protocolo por 21 dias. Se no dia 21 ele não estiver sentando sozinho para fazer a folha, você me manda uma mensagem e eu devolvo os R$ 37. Você fica com o protocolo.</p>
       <p>Sem formulário e sem pergunta. É só responder o e-mail que chega com a sua compra.</p>
       <a class="btn co" data-co="CHECKOUT_FRONT" data-upgrade href="#" style="margin-left:0">Quero começar hoje</a>
@@ -465,7 +467,7 @@ footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font
   <a class="btn co" data-co="CHECKOUT_FRONT" data-upgrade href="#">Quero o protocolo completo</a>
   <div class="cols">
     <p><b>Pagamento:</b> Pix ou cartão, processado pela Cakto</p>
-    <p><b>Garantia:</b> <span data-gdays>21</span> dias, sem formulário e sem pergunta</p>
+    <p><b>Garantia:</b> <span data-gdays>30</span> dias, sem formulário e sem pergunta</p>
     <p id="wa" hidden><b>Suporte:</b> <a id="wal" href="#" rel="noopener">WhatsApp</a></p>
     <p><a href="termos/">Termos de uso</a> · <a href="privacidade/">Política de privacidade</a></p>
     <p class="brand">Lição em Paz</p>
