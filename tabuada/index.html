@@ -9,8 +9,8 @@
 <meta property="og:title" content="Protocolo 21 Dias: Tabuada sem Guerra">
 <meta property="og:description" content="10 minutos por dia. Você só cronometra.">
 <meta property="og:image" content="https://editoraceleste.netlify.app/tabuada/img/og.jpg">
-<meta name="theme-color" content="#ffffff">
-<link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
+<meta name="theme-color" content="#FFC61A">
+<link rel="preload" as="image" href="img/produto.webp" fetchpriority="high">
 <link rel="preload" as="font" type="font/woff2" href="fonts/inter-Regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="fonts/inter-ExtraBold.woff2" crossorigin>
 <script>
@@ -44,7 +44,7 @@ if (window.LEP.CLARITY_ID) {
 @font-face{font-family:Inter;font-weight:400;font-style:normal;font-display:swap;src:url(fonts/inter-Regular.woff2) format("woff2")}
 @font-face{font-family:Inter;font-weight:600;font-style:normal;font-display:swap;src:url(fonts/inter-SemiBold.woff2) format("woff2")}
 @font-face{font-family:Inter;font-weight:800;font-style:normal;font-display:swap;src:url(fonts/inter-ExtraBold.woff2) format("woff2")}
-:root{--ink:#1C1C1C;--soft:#515962;--cream:#F5F3EF;--terra:#B36230;--dark:#4B1412;--green:#2CAA33;--green-d:#1F8A26;--red:#B8301C;--mark:#FFE6A3;--gold:#FFC83D;--line:rgba(0,0,0,.10);--r:16px}
+:root{--ink:#2A1240;--soft:#5B4B6B;--cream:#FFF6DA;--terra:#7B2CBF;--dark:#3B0F63;--green:#2CAA33;--green-d:#1F8A26;--red:#E0187C;--mark:#FFE08A;--gold:#FFC61A;--line:rgba(0,0,0,.10);--r:16px}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{margin:0;background:#fff;color:var(--ink);font:400 17px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
@@ -79,7 +79,7 @@ mark{background:linear-gradient(transparent 10%,var(--mark) 10% 92%,transparent 
 /* 2 hero */
 .hero{padding:16px 0 36px;border-bottom:1px solid var(--line)}
 .hero .sub{text-align:center;font-size:18px;line-height:1.45;margin:0 auto;max-width:540px}
-.hero .shot{width:100%;max-width:540px;margin:-8px auto -14px}
+.hero .shot{width:100%;max-width:520px;margin:14px auto 6px;border-radius:22px;box-shadow:0 14px 34px rgba(59,15,99,.28)}
 .price-line{text-align:center;font-size:20px;margin-top:2px}
 .price-line s{color:var(--soft)}
 .has-anchor .price-line .was{display:block;font-size:18px;line-height:1.2;color:var(--soft)}
@@ -276,7 +276,7 @@ footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font
   <img class="logo-h" src="img/logo.webp" width="64" height="64" fetchpriority="high" alt="Editora Celeste">
   <h1 style="margin-top:14px">Ele para de fugir da tabuada em <mark>21 dias</mark>.</h1>
   <p class="sub" style="margin-top:12px">Às 19h30 começa a mesma cena: o lápis longe do papel, o “presta atenção” pela terceira vez, o choro.<br><b>São 10 minutos por dia e um cronômetro de 3. Você só cronometra.</b></p>
-  <img class="shot" src="img/hero.webp" width="1100" height="800" fetchpriority="high" decoding="async" alt="Capa do Protocolo 21 Dias: Tabuada sem Guerra, ao lado da folha do dia 1 e do painel de 21 dias">
+  <img class="shot" src="img/produto.webp" width="1000" height="1000" fetchpriority="high" decoding="async" alt="Protocolo 21 Dias: Tabuada sem Guerra, com a capa do caderno, o quadro de progresso de 21 dias e uma folha da tabuada do 6">
   <p class="price-line"><span class="anchor was">De <s>R$ 147,00</s></span><span class="l2"><span class="anchor">por apenas </span><span class="noanchor">Apenas </span><b>R$ 37,00</b></span></p>
   <a class="btn co" data-co="CHECKOUT_FRONT" data-upgrade href="#">Quero o protocolo completo</a>
   <p class="micro">Você recebe na hora, direto no seu e-mail</p>
@@ -544,7 +544,7 @@ footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font
 
   (function(){
     var R = L.REVIEWS || []; if (!R.length) return;
-    var cols = ["#B36230","#2CAA33","#4B1412","#3b6fb6","#8a4fa0","#c27a00"];
+    var cols = ["#7B2CBF","#E0187C","#3B0F63","#1CA9C9","#2CAA33","#E08A00"];
     function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
     function card(r,i,txt){
       var ini = r.n.split(" ").map(function(p){return p[0];}).join("").slice(0,2).toUpperCase();
