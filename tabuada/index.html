@@ -604,7 +604,7 @@ footer .brand{font-weight:800;letter-spacing:.14em;text-transform:uppercase;font
   var qs = location.search ? location.search.slice(1) : "";
   var HAS57 = !!L.CHECKOUT_PREMIUM57;
   if (!HAS57) L.CHECKOUT_PREMIUM57 = L.CHECKOUT_PREMIUM;   /* modal funciona mesmo sem a oferta de R$ 57 */
-  var UP = !!L.CHECKOUT_PREMIUM57;
+  var UP = false;   /* modal de upgrade desligado: os botoes de R$ 37 vao direto ao checkout */
   if (!HAS57) {
     var _p = document.querySelector("#up .up-price"), _s = document.querySelector("#up .up-save");
     if (_p) _p.innerHTML = "<b>R$ 87,00</b>";
